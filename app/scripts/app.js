@@ -3,11 +3,7 @@ App = angular.module('App', ['ngResource'])
       $routeProvider
          .when('/', {
             templateUrl: 'views/main.html',
-            controller: 'MainCtrl'
-         })
-         .when('/getQuote', {
-            templateUrl: 'views/getQuote.html',
-            controller : 'QuoteCtrl'
+            controller : 'MainController'
          })
          .otherwise({
             redirectTo: '/'

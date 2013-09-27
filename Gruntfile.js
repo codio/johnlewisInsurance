@@ -26,8 +26,10 @@ var jsFiles = [
 var cssFiles = [
    "app/styles/bootstrap.css",
    "bower_components/bootstrap-sass/bootstrap-responsive-2.3.2.css",
+   "bower_components/bootstrap-datepicker/css/datepicker.css",
    "app/styles/main.css",
-   "app/styles/header.css"
+   "app/styles/header.css",
+   "app/styles/form.css"
 ];
 
 module.exports = function (grunt) {
@@ -47,17 +49,13 @@ module.exports = function (grunt) {
   grunt.initConfig({
     yeoman: yeomanConfig,
     watch: {
-      coffee: {
-        files: ['<%= yeoman.app %>/scripts/{,*/}*.coffee'],
-        tasks: ['coffee:dist']
-      },
-      coffeeTest: {
-        files: ['test/spec/{,*/}*.coffee'],
-        tasks: ['coffee:test']
+      js: {
+        files: ['<%= yeoman.app %>/scripts/{,*/}*.js'],
+        tasks: ['concat:js']
       },
       styles: {
-        files: ['<%= yeoman.app %>/styles/{,*/}*.css'],
-        tasks: ['concat', 'copy:styles', 'autoprefixer']
+        files: ['<%= yeoman.app %>/styles/{,*/}*.less'],
+        tasks: ['concat:css', 'copy:styles', 'autoprefixer']
       },
       livereload: {
         options: {
@@ -177,11 +175,12 @@ module.exports = function (grunt) {
            src: jsFiles,
            dest: '<%= yeoman.app %>/scripts/build.js'
         },
-        css: {
-           src: cssFiles,
+        css : {
+           src : cssFiles,
            dest: '<%= yeoman.app %>/styles/build.css'
         }
      },
+
     rev: {
       dist: {
         files: {

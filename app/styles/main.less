@@ -1,8 +1,11 @@
+@import "_variables.less";
+
 body {
 
-   background: url('/resourses/header/header-bck.gif') 0 0 repeat-x #f3f1ed;
+   background: url('/resourses/header/header-bck.gif') 0 0 repeat-x @bg-color;
    height: 100%;
-   color: #5f5f5f;
+
+   color: @main-grey-color;
    font-family: Arial,Helvetica,sans-serif;
    font: 12px/1.231 sans-serif;
 
@@ -23,8 +26,26 @@ ul {
 #wrapper {
    margin-left: auto;
    margin-right: auto;
-   width: 1003px;
+   max-width: 1003px;
+   width: 100%;
    padding: 0;
    margin-top: 0;
    text-align: left;
+}
+
+h1 {
+   color: @h1-grey-color ;
+   font-size: 22px;
+   font-weight: normal;
+}
+
+.data-container {
+   background: @bg-container-color;
+   border: 1px solid @bg-container-border;
+
+   padding: 0 18px;
+   margin-top: 13px;
+
+   font-size: 1.2em;
+
 }

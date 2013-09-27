@@ -1,2 +1,141 @@
-<a href="#/getQuote">Get Quote</a>
+<div id="steps" class="row-fluid" xmlns="http://www.w3.org/1999/html">
+    <div class="step span1" ng-repeat="step in steps" ng-class="{active : step.active}">{{step.name}} </div>
+</div>
+
+<div class="data-container">
+    <div ng-show="steps[0].active && !steps[1].active">
+        <h1>About you...</h1>
+
+        <form name="QuoteForm0" novalidate ng-submit="submit()" >
+
+                <div class="row">
+                    <div class="span2">
+                        <select class="span2">
+                            <option selected="selected" value="">Please Choose</option>
+                            <option value="Mr">Mr</option>
+                            <option value="Mrs">Mrs</option>
+                            <option value="Miss">Miss</option>
+                            <option value="Ms">Ms</option>
+                            <option value="Dr">Doctor</option>
+                        </select>
+                    </div>
+
+                    <div class="span3">
+                        <input type="text" name="firstName" ng-model="firstName" placeholder="First Name" required/>
+                    </div>
+
+                    <div class="span3">
+                        <input type="text" name="lastName" ng-model="lastName" placeholder="Last Name" required/>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="span12">
+                        <input type="text" value="02-16-2012" class="datepicker">
+                    </div>
+                </div>
+
+
+                </br>
+
+                <div class="row">
+                    <div class="span12">
+                        <p>Their Gender (Why do we need to know this?)</p>
+                    </div>
+                </div>
+                <div class="row">
+
+                    <div class="span2">
+                        <input type="radio" value="male" name="radio1">Male</input>
+                    </div>
+                    <div class="span2">
+                        <input type="radio" value="female" name="radio1">Female</input>
+                    </div>
+                </div>
+
+                </br>
+
+                <div class="row">
+                    <div class="span12">
+                        <p>Has your partner used any tobacco products or nicotine replacement products in the last 12 months?</p>
+                    </div>
+                </div>
+
+
+
+                <div class="row">
+                    <div class="span2">
+                        <input type="radio" value="yes" name="radio1">Yes</input>
+                    </div>
+                    <div class="span2">
+                        <input type="radio" value="no" name="radio1">No</input>
+                    </div>
+                </div>
+
+
+            </br>
+
+
+            <div>
+                <input type="submit" value="Next"  class="btn"/>
+            </div>
+            <div class="clear"></div>
+
+        </form>
+    </div>
+</div>
+
+
+
+<div ng-show="steps[1].active && !steps[2].active">
+    <form name="QuoteForm1" novalidate ng-submit="submit()" >
+
+        <input type="number" class="left day"   name="day"   ng-model="day"    min="1" max="31" placeholder="DD" required/>
+        <input type="number" class="left month" name="month" ng-model="number" min="1" max="12" placeholder="MM" required/>
+        <input type="number" class="left year"  name="year"  ng-model="number" min="1940" max="2013" placeholder="YYYY" required/>
+        <div  class="clear"></div>
+        <br>
+        <span class="errorMessage" ng-show="QuoteForm1.day.$error.min || QuoteForm1.day.$error.max">error day</span>
+
+        <div class="right">
+            <input type="submit" value="Next" ng-disabled="QuoteForm1.$invalid"/>
+        </div>
+        <div class="clear"></div>
+
+    </form>
+</div>
+
+<div ng-show="steps[2].active && !steps[3].active">
+    <form name="QuoteForm2" novalidate ng-submit="submit()" >
+
+        step 3
+
+        <div class="right">
+            <input type="submit" value="Next" ng-disabled="QuoteForm2.$invalid"/>
+        </div>
+        <div class="clear"></div>
+
+    </form>
+</div>
+
+<div ng-show="steps[3].active">
+    <form name="QuoteForm3" novalidate ng-submit="submit()" >
+
+        step 4
+
+        <div class="right">
+            <input type="submit" value="Finish" ng-disabled="QuoteForm3.$invalid"/>
+        </div>
+        <div class="clear"></div>
+
+    </form>
+</div>
+
+
+
+
+
+
+
+
 
