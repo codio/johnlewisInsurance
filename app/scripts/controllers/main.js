@@ -25,5 +25,7 @@ App.controller('MainController', ['$scope',function ($scope) {
       }
    };
 
+
+   $('.dropdown-toggle').dropdown();
    $('.datepicker').datepicker();
 }]);

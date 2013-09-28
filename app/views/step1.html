@@ -1,0 +1,147 @@
+<h1>About you...</h1>
+
+<form name="QuoteForm0" novalidate ng-submit="submit()" >
+
+    <div class="row">
+        <div class="span12">
+            <p>Your Name (optional)</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="span2">
+            <div class="dropdown">
+
+                <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                    Please Select
+                    <span class="caret"></span>
+                </a>
+
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+                    <li><a tabindex="-1" href="">Mr</a></li>
+                    <li><a tabindex="-1" href="">Mrs</a></li>
+                    <li><a tabindex="-1" href="">Miss</a></li>
+                    <li><a tabindex="-1" href="">Ms</a></li>
+                    <li><a tabindex="-1" href="">Doctor</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="span2">
+            <input type="text" class="span2" name="firstName" ng-model="firstName" placeholder="First Name" required/>
+        </div>
+
+        <div class="span2">
+            <input type="text" class="span2" name="lastName" ng-model="lastName" placeholder="Last Name" required/>
+        </div>
+    </div>
+
+    <br>
+
+    <div class="row">
+        <div class="span6">
+            <p>Your Date of Birth</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="span12">
+            <input type="text" class="span2" value="02-16-2012" class="datepicker">
+        </div>
+    </div>
+
+    </br>
+
+    <div class="row">
+        <div class="span6">
+            <p>Your Gender (Why do we need to know this?)</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="span2">
+
+            <label class="radio">
+                <input type="radio" name="gender" id="optionsRadios1" value="male" checked>
+                Male
+            </label>
+            <label class="radio">
+                <input type="radio" name="gender" id="optionsRadios2" value="female">
+                Female
+            </label>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="span6">
+            <small>
+                While we no longer use your gender to determine the cost of your policy, some of our health questions are only relevant if you're male or female.
+            </small>
+        </div>
+    </div>
+
+    </br>
+
+    <div class="row">
+        <div class="span6">
+            <p>Have you used any tobacco products or nicotine replacement products in the last 12 months?</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="span6">
+            <label class="radio">
+                <input type="radio" name="tobacco" id="optionsRadios3" value="yes" checked>
+                Yes
+            </label>
+            <label class="radio">
+                <input type="radio" name="tobacco" id="optionsRadios4" value="no">
+                No
+            </label>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="span6">
+            <small>
+                You must not have smoked or used any nicotine replacement products within the last 12 months to be a non smoker, if you have you are classed as a smoker.
+            </small>
+        </div>
+    </div>
+
+    </br>
+
+    <div class="row">
+        <div class="span6">
+            <p>Do you want to cover yourself, or both you and a partner?</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="span6">
+            <label class="radio">
+                <input type="radio" name="tobacco" value="me" checked>
+                Just me
+            </label>
+            <label class="radio">
+                <input type="radio" name="tobacco" value="partner">
+                Me and a partner
+            </label>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="span6">
+            <small>
+                A joint life policy is typically cheaper than two single life policies. But while both cover two people’s lives, a joint life policy only pays out once, for whoever dies first, while with separate single life policies both will pay out if you both die.
+            </small>
+        </div>
+    </div>
+
+
+    </br>
+
+
+    <div class="row">
+        <div class="span12">
+            <button type="submit" class="span2 offset4 btn btn-success">Next</button>
+        </div>
+    </div>
+
+</form>
