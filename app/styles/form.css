@@ -25,6 +25,43 @@ input[type="url"],
 input[type="search"],
 input[type="tel"],
 input[type="color"],
-.uneditable-input {
+.uneditable-input,
+.input-append .add-on:last-child,
+.input-append .btn:last-child,
+.input-append .btn-group:last-child > .dropdown-toggle,
+.input-prepend .add-on:first-child,
+.input-prepend .btn:first-child {
   border-radius: 0px;
+}
+.input-append .add-on,
+.input-append .btn,
+.input-append .btn-group,
+.input-prepend .add-on,
+.input-prepend .btn,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"],
+.uneditable-input,
+label,
+select,
+textarea {
+  font-size: 12px;
+  font-weight: normal;
+}
+.btn {
+  font-size: 12px;
+}
+.btn .caret {
+  margin-top: 8px;
 }
