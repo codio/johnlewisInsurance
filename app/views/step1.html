@@ -1,62 +1,59 @@
 <h1>About you...</h1>
 
-<form name="QuoteForm0" novalidate ng-submit="submit()" >
+<form name="QuoteForm0" novalidate ng-submit="submit()" class="container-fluid" >
 
     <div class="row">
         <div class="span12">
             <h2>Your Name (optional)</h2>
         </div>
     </div>
-    <div class="row">
-        <div class="span2">
-            <div class="dropdown">
+    <div class="row form-inline">
+        <span class="dropdown">
 
-                <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-                    Please Select
-                    <span class="caret"></span>
-                </a>
+            <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                Please Select
+                <span class="caret"></span>
+            </a>
 
-                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
-                    <li><a tabindex="-1" href="">Mr</a></li>
-                    <li><a tabindex="-1" href="">Mrs</a></li>
-                    <li><a tabindex="-1" href="">Miss</a></li>
-                    <li><a tabindex="-1" href="">Ms</a></li>
-                    <li><a tabindex="-1" href="">Doctor</a></li>
-                </ul>
-            </div>
-        </div>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+                <li><a tabindex="-1" href="">Mr</a></li>
+                <li><a tabindex="-1" href="">Mrs</a></li>
+                <li><a tabindex="-1" href="">Miss</a></li>
+                <li><a tabindex="-1" href="">Ms</a></li>
+                <li><a tabindex="-1" href="">Doctor</a></li>
+            </ul>
+        </span>
 
-        <div class="span2">
-            <input type="text" class="span2" name="firstName" ng-model="firstName" placeholder="First Name" required/>
-        </div>
+        <input type="text" class="" name="firstName" ng-model="firstName" placeholder="First Name" required/>
+        <input type="text" class="" name="lastName" ng-model="lastName" placeholder="Last Name" required/>
 
-        <div class="span2">
-            <input type="text" class="span2" name="lastName" ng-model="lastName" placeholder="Last Name" required/>
-        </div>
     </div>
 
     <br>
 
     <div class="row">
-        <div class="span6">
+        <div class="span12">
             <h2>Your Date of Birth</h2>
         </div>
     </div>
     <div class="row">
         <div class="span12">
-            <input type="text" class="span2" value="02-16-2012" class="datepicker">
+            <input type="text" value="02-16-2012" class="datepicker">
         </div>
     </div>
+    
 
     </br>
 
     <div class="row">
-        <div class="span6">
+        <div class="span12">
             <h2>Your Gender (Why do we need to know this?)</h2>
         </div>
     </div>
+
     <div class="row">
-        <div class="span2">
+
+        <div class="span3" style="min-width: 100px;">
 
             <label class="radio">
                 <input type="radio" name="gender" id="optionsRadios1" value="male" checked>
@@ -66,13 +63,19 @@
                 <input type="radio" name="gender" id="optionsRadios2" value="female">
                 Female
             </label>
-
         </div>
+
+        <!--<div class="span9">-->
+            <!--<small>-->
+                <!--While we no longer use your gender to determine the cost of your policy, some of our health questions are only relevant if you're male or female.-->
+            <!--</small>-->
+        <!--</div>-->
+
     </div>
 
     <div class="row">
-        <div class="span6">
-            <small  class="span5 offset1">
+        <div class="span12">
+            <small  class="span11 offset1">
                 While we no longer use your gender to determine the cost of your policy, some of our health questions are only relevant if you're male or female.
             </small>
         </div>
@@ -81,12 +84,12 @@
     </br>
 
     <div class="row">
-        <div class="span6">
+        <div class="span12">
             <h2>Have you used any tobacco products or nicotine replacement products in the last 12 months?</h2>
         </div>
     </div>
     <div class="row">
-        <div class="span6">
+        <div class="span3">
             <label class="radio">
                 <input type="radio" name="tobacco" id="optionsRadios3" value="yes" checked>
                 Yes
@@ -96,11 +99,17 @@
                 No
             </label>
         </div>
+
+        <!--<div class="span9">-->
+            <!--<small>-->
+                <!--You must not have smoked or used any nicotine replacement products within the last 12 months to be a non smoker, if you have you are classed as a smoker.-->
+            <!--</small>-->
+        <!--</div>-->
     </div>
 
     <div class="row">
-        <div class="span6">
-            <small  class="span5 offset1">
+        <div class="span12">
+            <small  class="span11 offset1">
                 You must not have smoked or used any nicotine replacement products within the last 12 months to be a non smoker, if you have you are classed as a smoker.
             </small>
         </div>
@@ -109,12 +118,12 @@
     </br>
 
     <div class="row">
-        <div class="span6">
+        <div class="span12">
             <h2>Do you want to cover yourself, or both you and a partner?</h2>
         </div>
     </div>
     <div class="row">
-        <div class="span6">
+        <div class="span12">
             <label class="radio">
                 <input type="radio" name="amount" value="me" checked>
                 Just me
@@ -127,8 +136,8 @@
     </div>
 
     <div class="row">
-        <div class="span6">
-            <small  class="span5 offset1">
+        <div class="span12">
+            <small  class="span11 offset1">
                 A joint life policy is typically cheaper than two single life policies. But while both cover two people’s lives, a joint life policy only pays out once, for whoever dies first, while with separate single life policies both will pay out if you both die.
             </small>
         </div>
@@ -140,8 +149,10 @@
 
     <div class="row">
         <div class="span12">
-            <button type="submit" class="span2 offset4 btn btn-success">Next</button>
+            <button type="submit" class="span5 offset4 btn btn-success">Next</button>
         </div>
     </div>
 
 </form>
+
+

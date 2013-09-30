@@ -1,19 +1,19 @@
 App.controller('MainController', ['$scope',function ($scope) {
    $scope.steps = [
       {
-         name : "step1",
+         name : "About you",
          active : true
       },
       {
-         name : "step2",
+         name : "About your partner",
          active : false
       },
       {
-         name : "step3",
+         name : "Settings",
          active : false
       },
       {
-         name : "step4",
+         name : "Result",
          active : false
       }
    ];

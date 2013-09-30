@@ -26,6 +26,12 @@ input[type="color"], .uneditable-input ,
 .btn-group:last-child > .dropdown-toggle,
 .input-prepend .add-on:first-child, .input-prepend .btn:first-child {
    border-radius: 0px;
+   margin-top: 3px;
+   max-width: 100%;
+}
+
+.input-prepend, .input-append {
+   max-width: 80%;
 }
 
 .input-append .add-on, .input-append .btn,
@@ -42,11 +48,36 @@ label, select, textarea {
 }
 
 .btn {
+   margin-top: 3px;
    font-size: 12px;
 
    .caret {
       margin-top: 8px;
    }
 
+   &.noheight {
+      margin: 0;
+      padding: 0;
+      line-height: 12px;
+   }
+
 }
+
+span.dropdown {
+   padding: 4px 0;
+   .dropdown-menu {
+      margin-top: 6px;
+   }
+}
+
+.result-variant {
+   min-width: 65px;
+}
+
+/*.span1, .span2, .span3, .span4, .span5, .span6, .span7, .span8, .span9, .span10, .span11, .span12 {
+   display: block;
+   float: left;
+   overflow: hidden;
+}*/
+
 

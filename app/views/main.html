@@ -1,23 +1,31 @@
 <div id="steps" class="row-fluid" xmlns="http://www.w3.org/1999/html">
-    <div class="step span1" ng-repeat="step in steps" ng-class="{active : step.active}">{{step.name}} </div>
+    <div class="step span2" ng-repeat="step in steps" ng-class="{active : step.active}">{{step.name}} </div>
 </div>
 
-<div class="data-container">
-    <div ng-show="steps[0].active && !steps[1].active">
-        <div ng-include="'views/step1.html'"></div>
-        <!--<div ng-include="'views/step3.html'"></div>-->
-    </div>
+<div class="">
+    <div class="row-fluid">
 
-    <div ng-show="steps[1].active && !steps[2].active">
-        <div ng-include="'views/step2.html'"></div>
-    </div>
+        <div class="span8 data-container">
+            <div ng-show="steps[0].active && !steps[1].active">
+                <div ng-include="'views/step1.html'"></div>
+                <!--<div ng-include="'views/step3.html'"></div>-->
+            </div>
 
-    <div ng-show="steps[2].active && !steps[3].active">
-        <div ng-include="'views/step3.html'"></div>
-    </div>
+            <div ng-show="steps[1].active && !steps[2].active">
+                <div ng-include="'views/step2.html'"></div>
+            </div>
 
-    <div ng-show="steps[3].active">
-        <div ng-include="'views/step4.html'"></div>
+            <div ng-show="steps[2].active && !steps[3].active">
+                <div ng-include="'views/step3.html'"></div>
+            </div>
+
+            <div ng-show="steps[3].active">
+                <div ng-include="'views/step4.html'"></div>
+            </div>
+        </div>
+        <div class="span4 data-container">
+            SPAN 4
+        </div>
     </div>
 </div>
 
