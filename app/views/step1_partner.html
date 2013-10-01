@@ -1,6 +1,6 @@
-<h1>About you...</h1>
+<h1>About your partner...</h1>
 
-<div class="row"  ng-show="steps[0].error">
+<div class="row"  ng-show="steps[1].error">
     <div class="span11 offset1 info-error">
         <small  class="span11 offset1 info-error">
             <span>
@@ -16,7 +16,7 @@
 
     <div class="row">
         <div class="span12">
-            <h2>Your Name (optional)</h2>
+            <h2>Their Name (optional)</h2>
         </div>
     </div>
     <div class="row form-inline">
@@ -46,7 +46,7 @@
 
     <div class="row">
         <div class="span12">
-            <h2>Your Date of Birth</h2>
+            <h2>Their Date of Birth</h2>
         </div>
     </div>
     <div class="row">
@@ -54,13 +54,13 @@
             <input type="text" value="02-16-2012" ng-model="step.birthday" class="datepicker">
         </div>
     </div>
-    
+
 
     </br>
 
     <div class="row">
         <div class="span12">
-            <h2 ng-class="{'info-error' : (!step.gender && steps[0].error)}">Your Gender (Why do we need to know this?)</h2>
+            <h2 ng-class="{'info-error' : (!step.gender && steps[1].error)}">Their Gender (Why do we need to know this?)</h2>
         </div>
     </div>
 
@@ -92,7 +92,7 @@
 
     <div class="row">
         <div class="span12">
-            <h2 ng-class="{'info-error' : (!step.tobacco && steps[0].error)}">Have you used any tobacco products or nicotine replacement products in the last 12 months?</h2>
+            <h2 ng-class="{'info-error' : (!step.tobacco && steps[1].error)}">Has your partner used any tobacco products or nicotine replacement products in the last 12 months?</h2>
         </div>
     </div>
     <div class="row">
@@ -102,7 +102,7 @@
                 Yes
             </label>
             <label class="radio">
-                <input name="tobacco" ng-model="step.tobacco"  value="non-smoker"  type="radio" required>
+                <input name="tobacco" ng-model="step.tobacco"  value="noт-smoker"  type="radio" required>
                 No
             </label>
         </div>
@@ -115,34 +115,9 @@
             </small>
         </div>
     </div>
+
     </br>
 
-    <div class="row">
-        <div class="span12">
-            <h2  ng-class="{'info-error' : (!step.isPartner && steps[0].error)}">Do you want to cover yourself, or both you and a partner?</h2>
-        </div>
-    </div>
-    <div class="row">
-        <div class="span12">
-            <label class="radio">
-                <input type="radio" ng-model="step.isPartner" name="isPartner" value="0" required>
-                Just me
-            </label>
-            <label class="radio">
-                <input type="radio"  ng-model="step.isPartner" name="isPartner" value="1" required>
-                Me and a partner
-            </label>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="span12">
-            <small  class="span11 offset1">
-                A joint life policy is typically cheaper than two single life policies. But while both cover two people’s lives, a joint life policy only pays out once, for whoever dies first, while with separate single life policies both will pay out if you both die.
-            </small>
-        </div>
-    </div>
-    </br>
     <div class="row">
         <div class="span12">
             <button type="submit" class="span5 offset4 btn btn-success" ng-click="submit(step)">Next</button>
@@ -150,3 +125,5 @@
     </div>
 
 </form>
+
+

@@ -1,15 +1,15 @@
 @import "_variables.less";
 
 #steps {
-   width: 100%;
-
    .step {
-      font-size: 1.2em;
+      font-size: 1em;
       text-align: center;
       color: lighten(@main-grey-color, 30%);
+      min-height: 1em;
 
       &.active {
-         color: @green;
+         color: @main-grey-color;
+         font-weight: bold;
       }
    }
 }
@@ -74,10 +74,7 @@ span.dropdown {
    min-width: 65px;
 }
 
-/*.span1, .span2, .span3, .span4, .span5, .span6, .span7, .span8, .span9, .span10, .span11, .span12 {
-   display: block;
-   float: left;
-   overflow: hidden;
-}*/
-
+.info-error {
+   color : @red-error;
+}
 

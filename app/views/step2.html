@@ -1,17 +1,35 @@
 <h1>Let us know what you want...</h1>
 
-<form name="QuoteForm1" novalidate ng-submit="submit()"  class="container-fluid" >
+<div class="row"  ng-show="steps[2].error">
+    <div class="span11 offset1 info-error">
+        <small  class="span11 offset1 info-error">
+            <span>
+                Not all required fields are filled in correctly
+            </span>
+        </small>
+    </div>
+
+</div>
+
+
+<form novalidate class="container-fluid" ng-controller="Step2Controller" >
     <div class="row">
         <div class="span12">
-            <h2>Life cover amount</h2>
+            <h2 ng-class="{'info-error' : (!step.coverAmount && steps[2].error)}">Life cover amount</h2>
         </div>
     </div>
     <div class="row">
             <div class="input-prepend">
                 <span class="add-on">&nbsp;&nbsp;&nbsp;$&nbsp;&nbsp;&nbsp;</span>
-                <input type="text" class=""  placeholder="Life cover amount">
+                <input type="number" class="" ng-model="step.coverAmount" ng-min="40000" ng-max="750000"  placeholder="Life cover amount" required>
+
             </div>
-        </div>
+
+            <br>
+            <small  class="span11 offset1 info-error" ng-show="step.coverAmount.$error || (step.coverAmount && (step.coverAmount < 40000 || step.coverAmount > 750000))">
+                Cover amount for Life insurance must be between £40,000 and £750,000
+            </small>
+
     </div>
 
     <div class="row">
@@ -26,16 +44,21 @@
 
     <div class="row">
         <div class="span12">
-            <h2>Cover term</h2>
+            <h2 ng-class="{'info-error' : (!step.coverTerm && steps[2].error)}">Cover term</h2>
         </div>
     </div>
     <div class="row">
         <div class="span12">
 
             <div class="input-append">
-                <input  type="text" class="" placeholder="Cover term">
+                <input  type="number" class="" placeholder="Cover term" ng-model="step.coverTerm" required>
                 <span class="add-on">years</span>
             </div>
+            <br>
+            <small  class="span11 offset1 info-error" ng-show="(step.coverTerm && (step.coverTerm < 5 || step.coverTerm > 40))" >
+                Your cover term must be between 5 and 40
+            </small>
+
 
         </div>
     </div>
@@ -48,17 +71,15 @@
     </div>
 
     <br>
-
-
     <div class="row">
         <div class="span12">
-            <h2>Cover type</h2>
+            <h2 ng-class="{'info-error' : (!step.coverType && steps[2].error)}">Cover type</h2>
         </div>
     </div>
     <div class="row">
         <div class="span12">
             <label class="radio">
-                <input type="radio" name="coverType" value="level" checked>
+                <input type="radio" name="coverType" value="level" ng-model="step.coverType" checked>
                 Level term
             </label>
             <div>
@@ -69,7 +90,7 @@
             <div class="clearfix"></div>
             <br>
             <label class="radio">
-                <input type="radio" name="coverType" value="decreasing">
+                <input type="radio" name="coverType" value="decreasing" ng-model="step.coverType">
                 Decreasing term
             </label>
             <div>
@@ -86,17 +107,17 @@
 
     <div class="row">
         <div class="span12">
-            <h2>Include Critical Illness</h2>
+            <h2 ng-class="{'info-error' : (!step.illnes && steps[2].error)}">Include Critical Illness</h2>
         </div>
     </div>
     <div class="row">
         <div class="span12">
             <label class="radio">
-                <input type="radio" name="tobacco" value="yes" checked>
+                <input type="radio" name="tobacco" value="yes" ng-model="step.illnes">
                 Yes
             </label>
             <label class="radio">
-                <input type="radio" name="tobacco" value="no">
+                <input type="radio" name="tobacco" value="no" ng-model="step.illnes">
                 No
             </label>
         </div>
@@ -109,39 +130,38 @@
         </div>
     </div>
 
-
     <br>
-
-
-    <div class="row">
-        <div class="span12">
-            <h2>Amount</h2>
-        </div>
-    </div>
-    <div class="row">
-        <div class="span12">
-
-            <div class="input-prepend">
-                <span class="add-on">&nbsp;&nbsp;&nbsp;$&nbsp;&nbsp;&nbsp;</span>
-                <input type="text" class=""  placeholder="" value="5,000">
+    <div  ng-show="step.illnes=='yes'">
+        <div class="row" >
+            <div class="span12">
+                <h2 ng-class="{'info-error' : (!step.illnesAmount && steps[2].error)}">Amount</h2>
             </div>
+        </div>
+        <div class="row">
+            <div class="span12">
 
+                <div class="input-prepend">
+                    <span class="add-on">&nbsp;&nbsp;&nbsp;$&nbsp;&nbsp;&nbsp;</span>
+                    <input type="number" class=""  placeholder="" value="5,000" ng-model="step.illnesAmount">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="span12">
+                <small  class="span11 offset1">
+                    You can choose between 10% and 100% of your Life cover amount, up to £600,000 depending how old you are.
+                </small>
+            </div>
         </div>
     </div>
-    <div class="row">
-        <div class="span12">
-            <small  class="span11 offset1">
-                You can choose between 10% and 100% of your Life cover amount, up to £600,000 depending how old you are.
-            </small>
-        </div>
-    </div>
+
 
     <br>
 
 
     <div class="row">
         <div class="span12">
-            <button type="submit" class="span5 offset4 btn btn-success">Next</button>
+            <button type="submit" class="span5 offset4 btn btn-success" ng-click="submit(step)">Next</button>
         </div>
     </div>
 </form>
