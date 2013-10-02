@@ -2,6 +2,7 @@ App.controller('MainController', ['$scope',function ($scope) {
    $scope.steps = [
       {
          name : "About you",
+         completed : false,
          active : true,
          visible : true,
          data : null,
@@ -10,6 +11,7 @@ App.controller('MainController', ['$scope',function ($scope) {
       },
       {
          name : "About your partner",
+         completed : false,
          active : false,
          visible : false,
          data : null,
@@ -18,6 +20,7 @@ App.controller('MainController', ['$scope',function ($scope) {
       },
       {
          name : "Settings",
+         completed : false,
          active : false,
          visible : true,
          data : null,
@@ -26,6 +29,7 @@ App.controller('MainController', ['$scope',function ($scope) {
       },
       {
          name : "Result",
+         completed : false,
          active : false,
          visible : true,
          data : null,
@@ -37,23 +41,30 @@ App.controller('MainController', ['$scope',function ($scope) {
    $scope.submit = function(stepData) {
 
       function goToNextStep () {
-         var item = _.findWhere($scope.steps, {active: false, visible: true});
+         var item = _.findWhere($scope.steps, {visible: true, completed : false});
          if (item) {
             item.active = true;
          }
       };
 
-      var compliteStep = _.findWhere($scope.steps, {visible : true, data : null});
 
+      function saveData(stepData) {
+         var activeStep = _.findWhere($scope.steps, {visible : true, active : true});
 
-      if (compliteStep && compliteStep.hasOwnProperty('validateFunction') && compliteStep.validateFunction(stepData)) {
-         compliteStep.data = stepData;
+         if (activeStep && activeStep.hasOwnProperty('validateFunction') && activeStep.validateFunction(stepData)) {
+            activeStep.data = stepData;
+            activeStep.completed = true;
+            activeStep.active = false;
+            return true;
+         }
+
+         return false;
+      };
+
+      if (saveData(stepData)) {
          goToNextStep();
       }
-      else {
-         console.log("noValid");
-      }
-      console.log("Step data", $scope.steps);
+
    };
 
 
@@ -124,6 +135,15 @@ App.controller('MainController', ['$scope',function ($scope) {
 
    function isValidDefault(stepData) {
       return true;
+   };
+
+   $scope.goToStep = function(step) {
+      _.each($scope.steps, function(step) {
+         step.active = false;
+      });
+
+      step.active = true;
+      console.log("change step");
    };
 
 }]);

@@ -1,35 +1,53 @@
-<h1>Your Quote</h1>
 
-<div class="container">
+<div class="container-fluid">
 
-    <div class="row" ng-show="steps[0].data">
-        <h2>You :</h2>
-        <div class="span12">
+    <div class="row">
+        <h3>Help and tips</h3>
+        <p>
+            <strong>Single or Joint policy…</strong>
+            A joint life policy is typically cheaper than two single life policies. But while both cover two people’s lives, a joint life policy only pays out once, for whoever dies first, while with separate single life policies both will pay out if you both die.
+
+        </p>
+        <p>
+            <strong>Why do we still need to know your gender?</strong>
+            While we no longer use your gender to determine the cost of your policy, some of our health questions are only relevant if you're male or female.
+        </p>
+    </div>
+
+
+    <div class="row"  ng-show="steps[0].data" >
+        <h3>Your Quote</h3>
+        <strong>You : </strong>
+        <span>
             {{steps[0].data.formality}} {{steps[0].data.firstName}} {{steps[0].data.lastName}}
-            <span ng-show="steps[0].data.gender && steps[0].data.birthday">
-                The {{steps[0].data.gender}} was born {{steps[0].data.birthday}}
-            </span>
-            <br>
+        </span>
+        <span class="span11 offset1">
+            <span ng-show="steps[0].data.birthday">was born {{steps[0].data.birthday}} years<br></span>
+
             {{steps[0].data.tobacco}}
-        </div>
-    </div>
-    <div class="row" ng-show="steps[1].data">
-        <h2>Your partner :</h2>
-        <div class="span12">
-            {{steps[1].data.formality}} {{steps[1].data.firstName}} {{steps[1].data.lastName}}
-            <span ng-show="steps[1].data.gender && steps[1].data.birthday">
-                The {{steps[1].data.gender}} was born {{steps[1].data.birthday}}
-            </span>
-            <br>
-            {{steps[1].data.tobacco}}
-        </div>
+        </span>
     </div>
 
-    <div class="row" ng-show="steps[2].data">
-        <h2>You want </h2>
-        <div class="span12">
-            {{steps[2].data.}}
-        </div>
+    <div class="row" ng-show="steps[1].data" >
+        <strong>Your Partner :</strong>
+        <span>
+            {{steps[1].data.formality}} {{steps[1].data.firstName}} {{steps[1].data.lastName}}
+        </span>
+        <span class="span11 offset1">
+            <span  ng-show="steps[1].data.birthday">was born {{steps[1].data.birthday}} years<br></span>
+            {{steps[1].data.tobacco}}
+        </span>
+    </div>
+
+    <div class="row" ng-show="steps[2].data" >
+        <strong>
+            Your quote for
+            <br>
+            <span class="text-success">£{{steps[2].data.coverAmount}} Life insurance</span>
+            <br>
+            <span class="text-success">over {{steps[2].data.coverTerm}} years</span>
+        </strong>
+
     </div>
 
 </div>
