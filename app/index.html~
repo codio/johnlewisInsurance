@@ -73,12 +73,7 @@
 
 <!-- build:js({.tmp,app}) scripts/build.js -->
         <script src="scripts/app.js"></script>
-        <script src="scripts/runs/is-mobile.js"></script>
-        <script src="scripts/controllers/footer.js"></script>
-        <script src="scripts/controllers/header.js"></script>
         <script src="scripts/controllers/main.js"></script>
-        <script src="scripts/controllers/step1.js"></script>
-        <script src="scripts/controllers/step2.js"></script>
 <!-- endbuild -->
 
 

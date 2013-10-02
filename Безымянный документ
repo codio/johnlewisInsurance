@@ -1,4 +1,4 @@
-// Generated on 2013-10-02 using generator-angular 0.4.0
+// Generated on 2013-09-26 using generator-angular 0.4.0
 'use strict';
 var LIVERELOAD_PORT = 35729;
 var lrSnippet = require('connect-livereload')({ port: LIVERELOAD_PORT });
@@ -11,6 +11,18 @@ var mountFolder = function (connect, dir) {
 // 'test/spec/{,*/}*.js'
 // use this if you want to recursively match all subfolders:
 // 'test/spec/**/*.js'
+
+//
+//<script src="scripts/app.js"></script>
+//<script src="scripts/controllers/main.js"></script>
+//   <script src="scripts/controllers/quote.js"></script>
+
+
+var jsFiles = [
+      "app/scripts/app.js",
+      "app/scripts/runs/*.js",
+      "app/scripts/controllers/*.js"
+   ];
 
 var cssFiles = [
    "app/styles/bootstrap.css",
@@ -38,28 +50,20 @@ module.exports = function (grunt) {
   grunt.initConfig({
     yeoman: yeomanConfig,
     watch: {
-      coffee: {
-        files: ['<%= yeoman.app %>/scripts/{,*/}*.coffee'],
-        tasks: ['coffee:dist']
-      },
-      coffeeTest: {
-        files: ['test/spec/{,*/}*.coffee'],
-        tasks: ['coffee:test']
-      },
-      compass: {
-        files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
-        tasks: ['compass:server', 'autoprefixer']
+      js: {
+        files: ['<%= yeoman.app %>/scripts/{,*/}*.js'],
+        tasks: ['concat:js']
       },
       styles: {
-        files: ['<%= yeoman.app %>/styles/{,*/}*.css'],
-        tasks: ['copy:styles', 'autoprefixer']
+        files: ['<%= yeoman.app %>/styles/{,*/}*.less'],
+        tasks: ['concat:css', 'copy:styles', 'autoprefixer']
       },
       livereload: {
         options: {
           livereload: LIVERELOAD_PORT
         },
         files: [
-          '<%= yeoman.app %>/{,*/}*.html',
+          '<%= yeoman.app %>/views/{,*/}*.html',
           '.tmp/styles/{,*/}*.css',
           '{.tmp,<%= yeoman.app %>}/scripts/{,*/}*.js',
           '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
@@ -165,35 +169,27 @@ module.exports = function (grunt) {
         }]
       }
     },
-    compass: {
-      options: {
-        sassDir: '<%= yeoman.app %>/styles',
-        cssDir: '.tmp/styles',
-        generatedImagesDir: '.tmp/images/generated',
-        imagesDir: '<%= yeoman.app %>/images',
-        javascriptsDir: '<%= yeoman.app %>/scripts',
-        fontsDir: '<%= yeoman.app %>/styles/fonts',
-        importPath: '<%= yeoman.app %>/bower_components',
-        httpImagesPath: '/images',
-        httpGeneratedImagesPath: '/images/generated',
-        httpFontsPath: '/styles/fonts',
-        relativeAssets: false
-      },
-      dist: {},
-      server: {
-        options: {
-          debugInfo: true
-        }
-      }
-    },
     // not used since Uglify task does concat,
     // but still available if needed
-    concat: {
-      distCss:{
+     concat : {
+        distJs:{
+	  src: jsFiles,
+          dest: '<%= yeoman.dist %>/scripts/build.js'          
+        },
+        distCss:{
 	  src : cssFiles,
            dest: '<%= yeoman.dist %>/styles/build.css'      
         },
-    },
+        js: {
+           src: jsFiles,
+           dest: '<%= yeoman.app %>/scripts/build.js'
+        },
+        css : {
+           src : cssFiles,
+           dest: '<%= yeoman.app %>/styles/build.css'
+        }
+     },
+
     rev: {
       dist: {
         files: {
@@ -307,17 +303,13 @@ module.exports = function (grunt) {
     concurrent: {
       server: [
         'coffee:dist',
-        'compass:server',
         'copy:styles'
       ],
       test: [
         'coffee',
-        'compass',
         'copy:styles'
       ],
       dist: [
-        'coffee',
-        'compass:dist',
         'copy:styles',
         'imagemin',
         'svgmin',
@@ -363,6 +355,7 @@ module.exports = function (grunt) {
 
     grunt.task.run([
       'clean:server',
+       'concat',
       'concurrent:server',
       'autoprefixer',
       'connect:livereload',
@@ -384,8 +377,9 @@ module.exports = function (grunt) {
     'useminPrepare',
     'concurrent:dist',
     'autoprefixer',
-    'concat',
     'copy:dist',
+    'concat:distJs',
+    'concat:distCss',
     'cdnify',
     'ngmin',
     //'cssmin',
@@ -395,8 +389,12 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('default', [
-    'jshint',
-    'test',
-    'build'
+     'clean:server',
+     'concat',
+     'concurrent:server',
+     'autoprefixer',
+     'connect:livereload',
+     'open',
+     'watch'
   ]);
 };
