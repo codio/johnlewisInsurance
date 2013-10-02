@@ -1,3 +1,11 @@
+<header>
+        <div ng-controller="HeaderController" id="page-header">
+            <div ng-include="layout"></div>
+        </div>
+    </header>
+
+<div class="page-content">
+
 <div id="steps" class="row-fluid" xmlns="http://www.w3.org/1999/html" ng-class="{'hidden' : isMobile}">
     <div class="step span2" ng-repeat="step in steps" ng-show="step.visible">
         <a class="active btn-link" ng-class="{'green' : step.active}" ng-click="goToStep(step)" ng-show="step.active || step.completed">
@@ -34,3 +42,11 @@
         <div ng-include="'views/quote_state.html'"></div>
     </div>
 </div>
+
+</div>
+
+ <footer>
+        <div ng-controller="FooterController" id="page-footer">
+            <div ng-include="layout"></div>
+        </div>
+    </footer>

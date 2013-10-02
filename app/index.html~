@@ -29,20 +29,12 @@
 <!-- Add your site or application content here -->
 
 <div id="wrapper">
-    <header>
-        <div ng-controller="HeaderController" id="page-header">
-            <div ng-include="layout"></div>
-        </div>
-    </header>
+    
 
 
     <div  class="page-content" ng-view=""></div>
 
-    <footer>
-        <div ng-controller="FooterController" id="page-footer">
-            <div ng-include="layout"></div>
-        </div>
-    </footer>
+   
 </div>
 
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
@@ -73,7 +65,12 @@
 
 <!-- build:js({.tmp,app}) scripts/build.js -->
         <script src="scripts/app.js"></script>
+        <script src="scripts/runs/is-mobile.js"></script>
+        <script src="scripts/controllers/footer.js"></script>
+        <script src="scripts/controllers/header.js"></script>
         <script src="scripts/controllers/main.js"></script>
+        <script src="scripts/controllers/step1.js"></script>
+        <script src="scripts/controllers/step2.js"></script>
 <!-- endbuild -->
 
 

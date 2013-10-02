@@ -4,7 +4,7 @@
         </div>
     </header>
 
-<div  class="page-content">
+<div>
 
 <div id="steps" class="row-fluid" xmlns="http://www.w3.org/1999/html" ng-class="{'hidden' : isMobile}">
     <div class="step span2" ng-repeat="step in steps" ng-show="step.visible" >
