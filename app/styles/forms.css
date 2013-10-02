@@ -4,9 +4,12 @@
   color: #acacac;
   min-height: 1em;
 }
-#steps .step.active {
+#steps .step .active {
   color: #5f5f5f;
   font-weight: bold;
+}
+#steps .step .active.green {
+  color: #284e36;
 }
 select,
 textarea,

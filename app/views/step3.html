@@ -30,7 +30,7 @@
 
     <br>
 
-    <div class="row">
+    <div class="row" ng-show="!isMobile">
 
         <div class="span1 text-center result-variant">
                 <input type="radio" name="cost" value="1" >
@@ -79,6 +79,47 @@
 
 
     </div>
+
+
+    <div class="row" ng-show="isMobile">
+        <label class="radio">
+            <input type="radio" name="cost" value="1" required>
+            <strong>$430,000</strong>
+            <small>for only</small>
+            <strong>$22,69</strong>
+            <small>per month</small>
+        </label>
+        <label class="radio">
+            <input type="radio" name="cost" value="2" required>
+            <strong>$440,000</strong>
+            <small>for only</small>
+            <strong>$23.16</strong>
+            <small>per month</small>
+        </label>
+        <label class="radio result-variant">
+            <input type="radio" name="cost" value="3" required checked>
+            <strong>$450,000</strong>
+            <small>for only</small>
+            <strong>$23.63</strong>
+            <small>per month</small>
+        </label>
+        <label class="radio ">
+            <input type="radio" name="cost" value="4" required>
+            <strong>$460,000</strong>
+            <small>for only</small>
+            <strong>$24.11</strong>
+            <small>per month</small>
+        </label>
+        <label class="radio">
+            <input type="radio" name="cost" value="5" required>
+            <strong>$470,000</strong>
+            <small>for only</small>
+            <strong>$24.58</strong>
+            <small>per month</small>
+        </label>
+
+    </div>
+
 
     </br>
     </br>

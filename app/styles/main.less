@@ -36,6 +36,7 @@ ul {
 h1 {
    color: @h1-grey-color ;
    font-size: 22px;
+   line-height: 22px;
    font-weight: normal;
 }
 
@@ -52,4 +53,18 @@ h2 {
 
    padding: 0 18px 20px;
    margin-top: 13px;
+
+   &.hidden {
+      height: 0;
+   }
+}
+
+
+body.mobile {
+   background: @bg-color;;
+
+   .data-container {
+      border: none;
+      background: none;
+   }
 }

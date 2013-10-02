@@ -20,16 +20,17 @@ var mountFolder = function (connect, dir) {
 
 var jsFiles = [
       "app/scripts/app.js",
+      "app/scripts/runs/*.js",
       "app/scripts/controllers/*.js"
    ];
 
 var cssFiles = [
    "app/styles/bootstrap.css",
-   "bower_components/bootstrap-sass/bootstrap-responsive-2.3.2.css",
-   "bower_components/bootstrap-datepicker/css/datepicker.css",
+   "app/bower_components/bootstrap-sass/bootstrap-responsive-2.3.2.css",
+   "app/bower_components/bootstrap-datepicker/css/datepicker.css",
    "app/styles/main.css",
    "app/styles/header.css",
-   "app/styles/form.css"
+   "app/styles/forms.css"
 ];
 
 module.exports = function (grunt) {
@@ -347,6 +348,7 @@ module.exports = function (grunt) {
 
     grunt.task.run([
       'clean:server',
+       'concat',
       'concurrent:server',
       'autoprefixer',
       'connect:livereload',
