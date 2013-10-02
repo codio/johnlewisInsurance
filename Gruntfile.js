@@ -171,7 +171,17 @@ module.exports = function (grunt) {
     },
     // not used since Uglify task does concat,
     // but still available if needed
-     concat: {
+     concat : {
+        dist:{
+           js: {
+              src: jsFiles,
+              dest: '<%= yeoman.dist %>/scripts/build.js'
+           },
+           css : {
+              src : cssFiles,
+              dest: '<%= yeoman.dist %>/styles/build.css'
+           }
+        },
         js: {
            src: jsFiles,
            dest: '<%= yeoman.app %>/scripts/build.js'
@@ -369,7 +379,7 @@ module.exports = function (grunt) {
     'useminPrepare',
     'concurrent:dist',
     'autoprefixer',
-    'concat',
+    'concat:dist',
     'copy:dist',
     'cdnify',
     'ngmin',
