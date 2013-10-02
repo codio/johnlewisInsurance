@@ -1,7 +1,10 @@
 {
   "name": "insurance-cost",
-  "version": "0.0.0",
-  "dependencies": {},
+  "version": "0.0.0-2",
+  "dependencies": {
+     "gzippo" : "*",
+     "express" : "*"
+  },
   "devDependencies": {
     "grunt": "~0.4.1",
     "grunt-contrib-copy": "~0.4.1",
@@ -39,14 +42,14 @@
     "karma-phantomjs-launcher": "~0.1.0",
     "karma": "~0.10.2",
     "karma-ng-html2js-preprocessor": "~0.1.0",
-    "assemble-less" : "0.5.3"
+    "assemble-less": "0.5.3"
   },
   "engines": {
     "node": ">=0.8.0"
   },
-  "subdomain" : "insurance",
+  "subdomain": "insurance",
   "scripts": {
     "test": "grunt test",
-    "start" : "grunt server"
+    "start": "node server.js"
   }
 }
