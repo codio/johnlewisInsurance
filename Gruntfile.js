@@ -52,7 +52,7 @@ module.exports = function (grunt) {
       },
       styles: {
         files: ['<%= yeoman.app %>/styles/{,*/}*.css'],
-        tasks: ['copy:styles', 'autoprefixer']
+        tasks: ['concat', 'copy:styles', 'autoprefixer']
       },
       livereload: {
         options: {
@@ -189,10 +189,14 @@ module.exports = function (grunt) {
     // not used since Uglify task does concat,
     // but still available if needed
     concat: {
-      distCss:{
-	  src : cssFiles,
-           dest: '<%= yeoman.dist %>/styles/build.css'      
-        },
+       distCss:{
+          src : cssFiles,
+          dest: '<%= yeoman.dist %>/styles/build.css'
+       },
+       appCss:{
+          src : cssFiles,
+          dest: '<%= yeoman.app %>/styles/build.css'
+       }
     },
     rev: {
       dist: {
@@ -394,9 +398,22 @@ module.exports = function (grunt) {
     'usemin'
   ]);
 
-  grunt.registerTask('default', [
-    'jshint',
-    'test',
-    'build'
-  ]);
+//  grunt.registerTask('default', [
+//    'jshint',
+//    'test',
+//    'build'
+//  ]);
+
+   grunt.registerTask('default', [
+      'clean:server',
+      'concat',
+      'concurrent:server',
+      'autoprefixer',
+      'connect:livereload',
+      'open',
+      'watch'
+   ]);
+
+
+
 };
