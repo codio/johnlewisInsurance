@@ -83,14 +83,14 @@
             </div>
 
             <div class="" >
-                <small ng-class="{'info-error' : step.tobacco=='smoker'}">
+                <small ng-class="{'text-warning' : step.tobacco=='smoker'}">
                     You must not have smoked or used any nicotine replacement products within the last 12 months to be a non smoker, if you have you are classed as a smoker.
                 </small>
             </div>
 
     </div>
 
-    <div class="control-group" ng-class="{'alert alert-block' : (!step.isPartner && steps[0].error)}">
+    <div class="control-group ins-group" ng-class="{'alert alert-block' : (!step.isPartner && steps[0].error)}">
             <div class="">
                 <h2>Do you want to cover yourself, or both you and a partner?</h2>
             </div>
@@ -106,9 +106,9 @@
 
                 <div class="popover right">
                     <div class="arrow"></div>
-                    <h3 class="popover-title">Popover right</h3>
+
                     <div class="popover-content">
-                        <p>Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>
+                        <small>A joint life policy is typically cheaper than two single life policies. But while both cover two people’s lives, a joint life policy only pays out once, for whoever dies first, while with separate single life policies both will pay out if you both die.</small>
                     </div>
                 </div>
 
