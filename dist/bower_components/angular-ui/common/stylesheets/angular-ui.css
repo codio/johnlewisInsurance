@@ -1,0 +1,5 @@
+FileError: 'modules/directives/reset/stylesheets/reset.less' wasn't found in /home/irina/projects/johnlewisInsurance/dist/bower_components/angular-ui/common/stylesheets/angular-ui.less on line 5, column 1:
+4 @import "mixins.less";
+5 @import "modules/directives/reset/stylesheets/reset.less";
+6 @import "modules/directives/currency/stylesheets/currency.less";
+

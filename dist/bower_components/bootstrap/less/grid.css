@@ -1,0 +1,5 @@
+NameError: variable @gridColumnWidth is undefined in /home/irina/projects/johnlewisInsurance/dist/bower_components/bootstrap/less/grid.less on line 7, column 15:
+6 // Fixed (940px)
+7 #grid > .core(@gridColumnWidth, @gridGutterWidth);
+8 
+

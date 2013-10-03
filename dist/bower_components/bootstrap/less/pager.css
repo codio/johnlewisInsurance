@@ -1,0 +1,5 @@
+NameError: .clearfix is undefined in /home/irina/projects/johnlewisInsurance/dist/bower_components/bootstrap/less/pager.less on line 10, column 3:
+9   text-align: center;
+10   .clearfix();
+11 }
+

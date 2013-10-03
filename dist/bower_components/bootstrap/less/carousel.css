@@ -1,0 +1,5 @@
+NameError: variable @baseLineHeight is undefined in /home/irina/projects/johnlewisInsurance/dist/bower_components/bootstrap/less/carousel.less on line 8, column 18:
+7   position: relative;
+8   margin-bottom: @baseLineHeight;
+9   line-height: 1;
+

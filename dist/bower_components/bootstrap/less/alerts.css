@@ -1,0 +1,5 @@
+NameError: variable @baseBorderRadius is undefined in /home/irina/projects/johnlewisInsurance/dist/bower_components/bootstrap/less/alerts.less on line 15, column 18:
+14   border: 1px solid @warningBorder;
+15   .border-radius(@baseBorderRadius);
+16 }
+

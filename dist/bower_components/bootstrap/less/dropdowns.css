@@ -1,0 +1,5 @@
+NameError: variable @black is undefined in /home/irina/projects/johnlewisInsurance/dist/bower_components/bootstrap/less/dropdowns.less on line 27, column 27:
+26   vertical-align: top;
+27   border-top:   4px solid @black;
+28   border-right: 4px solid transparent;
+
