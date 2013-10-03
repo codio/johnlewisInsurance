@@ -16,9 +16,10 @@ var cssFiles = [
    "app/styles/bootstrap.css",
    "app/bower_components/bootstrap-sass/bootstrap-responsive-2.3.2.css",
    "app/bower_components/bootstrap-datepicker/css/datepicker.css",
-   "app/styles/main.css",
-   "app/styles/header.css",
-   "app/styles/forms.css"
+   "app/styles/styles.css",
+//   "app/styles/main.css",
+//   "app/styles/header.css",
+//   "app/styles/forms.css"
 ];
 
 module.exports = function (grunt) {
@@ -37,6 +38,16 @@ module.exports = function (grunt) {
 
   grunt.initConfig({
     yeoman: yeomanConfig,
+    less : {
+       development: {
+          options: {
+             paths: ['<%= yeoman.app %>/styles/']
+          },
+          files: {
+             "<%= yeoman.app %>/styles/styles.css": ['<%= yeoman.app %>/styles/{,*/}*.less']
+          }
+       }
+    },
     watch: {
       coffee: {
         files: ['<%= yeoman.app %>/scripts/{,*/}*.coffee'],
@@ -385,6 +396,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'clean:dist',
+    'less',
     'useminPrepare',
     'concurrent:dist',
     'autoprefixer',
@@ -406,6 +418,7 @@ module.exports = function (grunt) {
 
    grunt.registerTask('default', [
       'clean:server',
+      'less',
       'concat',
       'concurrent:server',
       'autoprefixer',
