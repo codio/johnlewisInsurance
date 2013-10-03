@@ -2,9 +2,9 @@
   "name": "insurance-cost",
   "version": "0.0.0-2",
   "dependencies": {
-     "gzippo" : "*",
-     "express" : "*",
-     "ejs": "*"
+    "gzippo": "*",
+    "express": "*",
+    "ejs": "*"
   },
   "devDependencies": {
     "grunt": "~0.4.1",
@@ -43,7 +43,8 @@
     "karma-phantomjs-launcher": "~0.1.0",
     "karma": "~0.10.2",
     "karma-ng-html2js-preprocessor": "~0.1.0",
-    "assemble-less": "0.5.3"
+    "assemble-less": "0.5.3",
+    "bower": "~1.2.7"
   },
   "engines": {
     "node": ">=0.8.0"
