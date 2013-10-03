@@ -29,12 +29,22 @@
 <!-- Add your site or application content here -->
 
 <div id="wrapper">
-    
+    <header>
+        <div ng-controller="HeaderController" id="page-header">
+            <div ng-include="layout"></div>
+        </div>
+    </header>
 
 
-    <div  ng-view=""></div>
+    <div  class="page-content" ng-view=""></div>
 
-   
+
+    <footer>
+        <div ng-controller="FooterController" id="page-footer">
+            <div ng-include="layout"></div>
+        </div>
+    </footer>
+
 </div>
 
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
