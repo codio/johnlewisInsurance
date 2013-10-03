@@ -1,100 +1,82 @@
 <h1>Let us know what you want</h1>
 
-<div class="row" ng-show="steps[2].error">
-    <div class="span11 offset1 info-error">
-        <small class="span11 offset1 info-error">
-            <span>
-                Not all required fields are filled in correctly
-            </span>
-        </small>
-    </div>
+<form novalidate="" ng-controller="Step2Controller">
+    <div class="control-group">
 
-</div>
-
-
-<form novalidate="" class="container-fluid" ng-controller="Step2Controller">
-    <div class="row">
-        <div class="span12">
+        <div class="">
             <h2 ng-class="{'info-error' : (!step.coverAmount && steps[2].error)}">Life cover amount</h2>
         </div>
-    </div>
-    <div class="row">
-            <div class="input-prepend">
-                <span class="add-on">&nbsp;&nbsp;&nbsp;$&nbsp;&nbsp;&nbsp;</span>
-                <input type="number" class="" ng-model="step.coverAmount" ng-min="40000" ng-max="750000" placeholder="Life cover amount" required="">
 
-            </div>
 
-            <br>
-            <small class="span11 offset1 info-error" ng-show="step.coverAmount.$error || (step.coverAmount && (step.coverAmount < 40000 || step.coverAmount > 750000))">
+        <div class="input-prepend">
+            <span class="add-on">&nbsp;&nbsp;&nbsp;$&nbsp;&nbsp;&nbsp;</span>
+            <input type="text" class="" ng-model="step.coverAmount" ng-min="40000" ng-max="750000" placeholder="Life cover amount" required="">
+
+        </div>
+
+        <div>
+            <small class="text-warning" ng-show="step.coverAmount.$error || (step.coverAmount && (step.coverAmount < 40000 || step.coverAmount > 750000))">
                 Cover amount for Life insurance must be between £40,000 and £750,000
             </small>
+        </div>
 
-    </div>
-
-    <div class="row">
-        <div class="span12">
-            <small class="span11 offset1">
+        <div class="">
+            <small class="">
                 How much cover you need is personal, but consider how much of your financial responsibilities you want paid if you were to die e.g. your mortgage, cost of bringing up children. We can offer up to £600,000 depending how old you are.
             </small>
         </div>
     </div>
 
-    <br>
 
-    <div class="row">
-        <div class="span12">
-            <h2 ng-class="{'info-error' : (!step.coverTerm && steps[2].error)}">Cover term</h2>
+    <div class="control-group" ng-class="{'alert alert-block' : (!step.coverTerm && steps[2].error)}">
+        <div class="">
+            <h2>Cover term</h2>
         </div>
-    </div>
-    <div class="row">
-        <div class="span12">
 
-            <div class="input-append">
-                <input type="number" class="" placeholder="Cover term" ng-model="step.coverTerm" required="">
-                <span class="add-on">years</span>
-            </div>
-            <br>
-            <small class="span11 offset1 info-error" ng-show="(step.coverTerm && (step.coverTerm < 5 || step.coverTerm > 40))">
+        <div class="input-append">
+            <input type="text" class="" placeholder="Cover term" ng-model="step.coverTerm" required="">
+            <span class="add-on">years</span>
+        </div>
+        <div>
+            <small class="text-warning" ng-show="(step.coverTerm && (step.coverTerm < 5 || step.coverTerm > 40))">
                 Your cover term must be between 5 and 40
             </small>
-
-
         </div>
-    </div>
-    <div class="row">
-        <div class="span12">
-            <small class="span11 offset1">
+
+
+        <div>
+            <small>
                 Consider how long your major financial responsibilities are likely to last e.g. paying off a mortgage, bringing up children. You can take out our Life Insurance for up to 30 years or until the age of 70.
             </small>
         </div>
+
     </div>
 
-    <br>
-    <div class="row">
-        <div class="span12">
-            <h2 ng-class="{'info-error' : (!step.coverType && steps[2].error)}">Cover type</h2>
+    <div class="control-group" ng-class="{'alert alert-block' : (!step.coverType && steps[2].error)}">
+        <div class="">
+            <h2>Cover type</h2>
         </div>
-    </div>
-    <div class="row">
-        <div class="span12">
+
+        <div class="">
             <label class="radio">
                 <input type="radio" name="coverType" value="level" ng-model="step.coverType" checked="checked">
                 Level term
             </label>
             <div>
-                <small class="span11 offset1">
+                <small>
                     Level term cover is typically used to cover a debt that doesn’t reduce over time e.g. an interest only mortgage or to provide a fixed amount to a loved one.
                 </small>
             </div>
+
             <div class="clearfix"></div>
-            <br>
+
             <label class="radio">
                 <input type="radio" name="coverType" value="decreasing" ng-model="step.coverType">
                 Decreasing term
             </label>
+
             <div>
-                <small class="span11 offset1">
+                <small>
                     Decreasing value cover is typically used to cover a debt that reduces over time e.g. a repayment mortgage. We have assumed a 6% per year mortgage interest rate in our policy.
                 </small>
             </div>
@@ -103,15 +85,12 @@
     </div>
 
 
-    <br>
-
-    <div class="row">
-        <div class="span12">
-            <h2 ng-class="{'info-error' : (!step.illnes && steps[2].error)}">Include Critical Illness</h2>
+    <div class="control-group" ng-class="{'alert alert-block' : (!step.illnes && steps[2].error)}">
+        <div class="">
+            <h2>Include Critical Illness</h2>
         </div>
-    </div>
-    <div class="row">
-        <div class="span12">
+
+        <div class="">
             <label class="radio">
                 <input type="radio" name="tobacco" value="yes" ng-model="step.illnes">
                 Yes
@@ -121,47 +100,46 @@
                 No
             </label>
         </div>
-    </div>
-    <div class="row">
-        <div class="span12">
-            <small class="span11 offset1">
+
+        <div class="">
+            <small>
                 Critical illness provides cover if you suffer a critical illness such as a heart attack, stroke, cancer diagnosis (refer to the Policy Summary for a list of all illnesses we cover).
             </small>
         </div>
+
     </div>
 
-    <br>
-    <div ng-show="step.illnes=='yes'">
-        <div class="row">
-            <div class="span12">
-                <h2 ng-class="{'info-error' : (!step.illnesAmount && steps[2].error)}">Amount</h2>
-            </div>
+    <div class="control-group" ng-class="{'alert alert-block' : (!step.illnesAmount && steps[2].error)}" ng-show="step.illnes=='yes'">
+        <div class="">
+            <h2>Amount</h2>
         </div>
-        <div class="row">
-            <div class="span12">
 
-                <div class="input-prepend">
-                    <span class="add-on">&nbsp;&nbsp;&nbsp;$&nbsp;&nbsp;&nbsp;</span>
-                    <input type="number" class="" placeholder="" value="5,000" ng-model="step.illnesAmount">
-                </div>
+        <div class="">
+
+            <div class="input-prepend">
+                <span class="add-on">&nbsp;&nbsp;&nbsp;$&nbsp;&nbsp;&nbsp;</span>
+                <input type="text" class="" placeholder="" value="5,000" ng-model="step.illnesAmount">
             </div>
         </div>
-        <div class="row">
-            <div class="span12">
-                <small class="span11 offset1">
-                    You can choose between 10% and 100% of your Life cover amount, up to £600,000 depending how old you are.
-                </small>
-            </div>
+
+        <div class="">
+            <small>
+                You can choose between 10% and 100% of your Life cover amount, up to £600,000 depending how old you are.
+            </small>
         </div>
+
     </div>
 
 
-    <br>
-
-
-    <div class="row">
-        <div class="span12">
+    <div class="control-group">
+        <div class="row">
             <button type="submit" class="span5 offset4 btn btn-success" ng-click="submit(step)">Next</button>
+        </div>
+
+        <div class="row" ng-show="steps[0].error">
+                <span class="span5 offset4 text-warning">
+                    <small>Not all required fields are filled in correctly</small>
+                </span>
         </div>
     </div>
 </form>

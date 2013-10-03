@@ -103,6 +103,16 @@
                     <input type="radio"  ng-model="step.isPartner" name="isPartner" value="1" required>
                     Me and a partner
                 </label>
+
+                <div class="popover right">
+                    <div class="arrow"></div>
+                    <h3 class="popover-title">Popover right</h3>
+                    <div class="popover-content">
+                        <p>Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>
+                    </div>
+                </div>
+
+
             </div>
 
 
@@ -119,7 +129,7 @@
         </div>
 
         <div class="row"  ng-show="steps[0].error">
-                <span class="span5 offset4  text-error">
+                <span class="span5 offset4 text-warning">
                     <small>Not all required fields are filled in correctly</small>
                 </span>
         </div>
