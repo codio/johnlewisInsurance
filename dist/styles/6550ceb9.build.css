@@ -7886,7 +7886,7 @@ a.badge:focus {
 }
 
 body {
-  background: url('/images/96709e9d.header-bck.gif') 0 0 repeat-x #f3f1ed;
+  background: url('../images/96709e9d.header-bck.gif') 0 0 repeat-x #f3f1ed;
   height: 100%;
   color: #5f5f5f;
   font-family: Arial, Helvetica, sans-serif;
@@ -7924,7 +7924,7 @@ h2 {
 .data-container {
   background: #ffffff;
   border: 1px solid #dedbd2;
-  padding: 0 18px 20px;
+  padding: 0 20px 20px;
   margin-top: 13px;
 }
 .data-container.hidden {
