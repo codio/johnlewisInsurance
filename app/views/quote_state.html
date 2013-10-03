@@ -19,7 +19,7 @@
         <h3>Your Quote</h3>
         <strong>You : </strong>
         <span>
-            {{steps[0].data.formality}} {{steps[0].data.firstName}} {{steps[0].data.lastName}}
+            {{steps[0].data.formality}} {{steps[0].data.firstName}}
         </span>
         <span class="span11 offset1">
             <span ng-show="steps[0].data.birthday">was born {{steps[0].data.birthday}} years<br></span>
@@ -31,7 +31,7 @@
     <div class="row" ng-show="steps[1].data" >
         <strong>Your Partner :</strong>
         <span>
-            {{steps[1].data.formality}} {{steps[1].data.firstName}} {{steps[1].data.lastName}}
+            {{steps[1].data.formality}} {{steps[1].data.firstName}}
         </span>
         <span class="span11 offset1">
             <span  ng-show="steps[1].data.birthday">was born {{steps[1].data.birthday}} years<br></span>

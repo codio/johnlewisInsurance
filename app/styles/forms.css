@@ -37,6 +37,11 @@ input[type="color"],
   margin-top: 3px;
   max-width: 100%;
 }
+.alert,
+.dropdown-menu,
+.btn {
+  border-radius: 0;
+}
 .input-prepend,
 .input-append {
   max-width: 80%;
@@ -64,12 +69,12 @@ input[type="color"],
 label,
 select,
 textarea {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: normal;
 }
 .btn {
   margin-top: 3px;
-  font-size: 12px;
+  font-size: 14px;
 }
 .btn .caret {
   margin-top: 8px;

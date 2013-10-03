@@ -3,7 +3,6 @@ App.controller("Step1Controller", ["$scope", function($scope) {
    $scope.step = {
       formality : null,
       firstName : null,
-      lastName : null,
       birthday : null,
       gender : null,
       tobacco : null,
