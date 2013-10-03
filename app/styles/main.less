@@ -2,12 +2,12 @@
 
 body {
 
-   background: url('/images/header-bck.gif') 0 0 repeat-x @bg-color;
+   background: url('../images/header-bck.gif') 0 0 repeat-x @bg-color;
    height: 100%;
 
    color: @main-grey-color;
    font-family: Arial,Helvetica,sans-serif;
-   font: 12px/1.231 sans-serif;
+   font: 14px/1.231 sans-serif;
 
    margin: 0;
    padding: 0;
@@ -44,14 +44,14 @@ h1 {
 h2 {
    font-size: 1em;
    font-weight: bold;
-   line-height: 1.2em;
+   line-height: 1em;
 }
 
 .data-container {
    background: @bg-container-color;
    border: 1px solid @bg-container-border;
 
-   padding: 0 18px 20px;
+   padding: 10px 18px 20px;
    margin-top: 13px;
 
    &.hidden {
@@ -67,4 +67,16 @@ body.mobile {
       border: none;
       background: none;
    }
+}
+
+/* BOOTSTRAP */
+
+@media (min-width: 1200px) {
+   .row {
+      margin-left: -20px;
+   }
+}
+
+.row-fluid [class*="span"] {
+   min-height: 1em;
 }
