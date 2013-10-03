@@ -1,5 +1,0 @@
-NameError: .opacity is undefined in /home/irina/projects/johnlewisInsurance/dist/bower_components/bootstrap/less/tooltip.less on line 14, column 3:
-13   line-height: 1.4;
-14   .opacity(0);
-15   &.in     { .opacity(80); }
-

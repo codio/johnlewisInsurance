@@ -1,5 +1,0 @@
-NameError: variable @baseFontSize is undefined in /home/irina/projects/johnlewisInsurance/dist/bower_components/bootstrap/less/labels-badges.less on line 11, column 14:
-10   padding: 2px 4px;
-11   font-size: @baseFontSize * .846;
-12   font-weight: bold;
-

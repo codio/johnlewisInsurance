@@ -1,5 +1,0 @@
-NameError: variable @baseBorderRadius is undefined in /home/irina/projects/johnlewisInsurance/dist/bower_components/bootstrap/less/wells.less on line 13, column 18:
-12   border: 1px solid darken(@wellBackground, 7%);
-13   .border-radius(@baseBorderRadius);
-14   .box-shadow(inset 0 1px 1px rgba(0,0,0,.05));
-

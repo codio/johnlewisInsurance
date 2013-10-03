@@ -1,5 +1,0 @@
-NameError: variable @baseFontFamily is undefined in /home/irina/projects/johnlewisInsurance/dist/bower_components/bootstrap/less/scaffolding.less on line 11, column 16:
-10   margin: 0;
-11   font-family: @baseFontFamily;
-12   font-size: @baseFontSize;
-

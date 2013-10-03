@@ -1,5 +1,0 @@
-NameError: variable @gridColumnWidth768 is undefined in /home/irina/projects/johnlewisInsurance/dist/bower_components/bootstrap/less/responsive-768px-979px.less on line 9, column 17:
-8   // Fixed grid
-9   #grid > .core(@gridColumnWidth768, @gridGutterWidth768);
-10 
-
