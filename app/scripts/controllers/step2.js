@@ -1,5 +1,6 @@
 App.controller("Step2Controller", ["$scope", "InsuranceData", function($scope, InsuranceData) {
    $scope.step = InsuranceData;
+   $scope.backStepNumber = 0;
 
    $('.styled-radio').iCheck({
       checkboxClass: 'icheckbox_square-green',

@@ -1,7 +1,7 @@
 <form novalidate class="" ng-controller="Step1Controller">
 
     <div class="control-group  form-horizontal">
-        <div class="controls" id="first-name-control">
+        <div class="controls first-name-control">
             <span class="dropdown">
                 <a class="btn dropdown-toggle" data-toggle="dropdown" href="#" ng-model="step.formality">
                     {{step.formality}}
@@ -116,7 +116,7 @@
         <h1>Your Partner</h1>
 
         <div class="control-group  form-horizontal">
-            <div class="controls" id="first-name-control">
+            <div class="controls first-name-control">
             <span class="dropdown">
                 <a class="btn dropdown-toggle" data-toggle="dropdown" href="#" ng-model="step.p_formality">
                     {{step.p_formality}}
@@ -125,11 +125,11 @@
                 </a>
 
                 <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
-                    <li><a tabindex="-1" href="" ng-click="setFormality('Mr')">Mr</a></li>
-                    <li><a tabindex="-1" href="" ng-click="setFormality('Mrs')">Mrs</a></li>
-                    <li><a tabindex="-1" href="" ng-click="setFormality('Miss')">Miss</a></li>
-                    <li><a tabindex="-1" href="" ng-click="setFormality('Ms')">Ms</a></li>
-                    <li><a tabindex="-1" href="" ng-click="setFormality('Doctor')">Doctor</a></li>
+                    <li><a tabindex="-1" href="" ng-click="setFormality('Mr', true)">Mr</a></li>
+                    <li><a tabindex="-1" href="" ng-click="setFormality('Mrs', true)">Mrs</a></li>
+                    <li><a tabindex="-1" href="" ng-click="setFormality('Miss', true)">Miss</a></li>
+                    <li><a tabindex="-1" href="" ng-click="setFormality('Ms', true)">Ms</a></li>
+                    <li><a tabindex="-1" href="" ng-click="setFormality('Doctor', true)">Doctor</a></li>
                 </ul>
             </span>
 

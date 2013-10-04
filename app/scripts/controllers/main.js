@@ -154,6 +154,10 @@ App.controller('MainController', ['$scope', "InsuranceData", function ($scope, I
       console.log("change step");
    };
 
+   $scope.backStep = function (stepNumber) {
+      $scope.goToStep($scope.steps[stepNumber]);
+   };
+
 }]);
 
 

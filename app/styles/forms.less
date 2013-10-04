@@ -17,6 +17,7 @@
       border-top: 1px solid #d4d4d4;
       border-bottom: 1px solid #d4d4d4;
       font-weight: 100;
+      text-transform: uppercase;
 
       .active {
          color: @main-grey-color;
@@ -24,7 +25,6 @@
 
          &.green {
             color : @green;
-            text-transform: uppercase;
          }
       }
 
@@ -142,16 +142,17 @@ label, select, textarea {
    }
 }
 
-#first-name-control {
-  margin-left: 86px;
+body:not(.mobile) {
+   .first-name-control {
+      margin-left: 86px;
 
-  > span a {
-    width: 63px;
-  }
+      > span a {
+         width: 63px;
+      }
+   }
 }
 
-.mobile #first-name-control {
-   margin-left: 0;
+.mobile .first-name-control {
 
    > input {
       display: block;
