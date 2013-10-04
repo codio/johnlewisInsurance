@@ -17,16 +17,16 @@
 
         <div class="span8">
             <div class="data-container">
-                <div ng-show="steps[0].active">
+                <div class="page" ng-class="{showed: steps[0].active, 'not-showed': !steps[0].active}">
                     <div ng-include="'views/step1.html'"></div>
                 </div>
 
 
-                <div ng-show="steps[2].active">
+                <div class="page" ng-class="{showed: steps[2].active, 'not-showed': !steps[2].active}">
                     <div ng-include="'views/step2.html'"></div>
                 </div>
 
-                <div ng-show="steps[3].active">
+                <div class="page" ng-class="{showed: steps[3].active, 'not-showed': !steps[3].active}">
                     <div ng-include="'views/step3.html'"></div>
                 </div>
             </div>

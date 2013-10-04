@@ -46,11 +46,11 @@
 
         <div class="clearfix span5">
             <label class="radio">
-                <input type="radio" ng-model="step.gender" name="gender" value="Male" required>
+                <input type="radio" class="styled-radio" ng-model="step.gender" name="gender" value="Male" required>
                 <span>Male</span>
             </label>
             <label class="radio">
-                <input type="radio" ng-model="step.gender" name="gender" value="Female" required>
+                <input type="radio" class="styled-radio" ng-model="step.gender" name="gender" value="Female" required>
                 <span>Female</span>
             </label>
         </div>
@@ -63,11 +63,11 @@
 
         <div class="clearfix span5">
             <label class="radio">
-                <input name="tobacco" ng-model="step.tobacco" value="smoker"  type="radio"  required>
+                <input name="tobacco" ng-model="step.tobacco" value="smoker"  type="radio" class="styled-radio"  required>
                 <span>Yes</span>
             </label>
             <label class="radio">
-                <input name="tobacco" ng-model="step.tobacco"  value="non-smoker"  type="radio" required>
+                <input name="tobacco" ng-model="step.tobacco"  value="non-smoker"  type="radio" class="styled-radio" required>
                 <span>No</span>
             </label>
         </div>
@@ -82,21 +82,21 @@
 
         <div class="clearfix span5">
             <label class="radio">
-                <input type="radio" ng-model="step.isPartner" name="isPartner" value="0" required>
+                <input type="radio" class="styled-radio" ng-model="step.isPartner" name="isPartner" value="0" required>
                 <span>Just me</span>
             </label>
-            <label class="radio" id="radio-me-partner">
-                <input type="radio"  ng-model="step.isPartner" name="isPartner" value="1" required>
+            <label class="radio vertical" >
+                <input type="radio" class="styled-radio"  ng-model="step.isPartner" name="isPartner" value="1" required>
                 <span>Me and a partner</span>
             </label>
 
-            <div class="popover right">
-                <div class="arrow"></div>
-                <h3 class="popover-title">Popover right</h3>
-                <div class="popover-content">
-                    <p>Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>
-                </div>
-            </div>
+            <!--<div class="popover right">-->
+                <!--<div class="arrow"></div>-->
+                <!--<h3 class="popover-title">Popover right</h3>-->
+                <!--<div class="popover-content">-->
+                    <!--<p>Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>-->
+                <!--</div>-->
+            <!--</div>-->
         </div>
 
         <small class="span6">
@@ -104,7 +104,86 @@
         </small>
     </div>
 
-    <div class="partner" ng-class="{'showed': step.isPartner=='1'}" ng-include="'views/step1_partner.html'"></div>
+    <div class="animate" ng-class="{'showed': step.isPartner=='1'}" >
+        <h1>Your Partner</h1>
+
+        <div class="control-group  form-horizontal">
+            <div class="controls" id="first-name-control">
+            <span class="dropdown">
+                <a class="btn dropdown-toggle" data-toggle="dropdown" href="#" ng-model="step.p_formality">
+                    {{step.formality}}
+                    <span ng-hide="step.p_formality">Select...</span>
+                    <span class="caret"></span>
+                </a>
+
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+                    <li><a tabindex="-1" href="" ng-click="setFormality('Mr')">Mr</a></li>
+                    <li><a tabindex="-1" href="" ng-click="setFormality('Mrs')">Mrs</a></li>
+                    <li><a tabindex="-1" href="" ng-click="setFormality('Miss')">Miss</a></li>
+                    <li><a tabindex="-1" href="" ng-click="setFormality('Ms')">Ms</a></li>
+                    <li><a tabindex="-1" href="" ng-click="setFormality('Doctor')">Doctor</a></li>
+                </ul>
+            </span>
+
+                <input type="text" class="" name="firstName" ng-model="step.p_firstName" placeholder="First name..."/>
+
+            </div>
+        </div>
+
+        <div class="control-group form-horizontal last-name-group">
+            <div class="controls">
+                <input type="text" class="" name="lastName" ng-model="step.p_lastName" placeholder="Last name..."/>
+            </div>
+        </div>
+
+        <div class="control-group form-horizontal">
+            <label class="control-label">Your Date of Birth</label>
+            <div class="controls">
+                <!-- <input type="text" value="02-16-2012" ng-model="step.birthday" class="datepicker" placeholder="Your date of birth..."> -->
+                <div class="datefield">
+                    <input id="day" type="tel" maxlength="2" placeholder="DD"/> /
+                    <input id="month" type="tel" maxlength="2" placeholder="MM"/> /
+                    <input id="year" type="tel" maxlength="4" placeholder="YYYY"/>
+                </div>
+            </div>
+        </div>
+
+        <div class="control-group row" ng-class="{'alert alert-block' : (!step.p_gender && steps[0].error)}">
+            <h2>Your Gender</h2>
+
+            <div class="clearfix span5">
+                <label class="radio">
+                    <input type="radio" class="styled-radio" ng-model="step.p_gender" name="p_gender" value="Male" required>
+                    <span>Male</span>
+                </label>
+                <label class="radio">
+                    <input type="radio" class="styled-radio" ng-model="step.p_gender" name="p_gender" value="Female" required>
+                    <span>Female</span>
+                </label>
+            </div>
+
+            <small class="span6">While we no longer use your gender to determine the cost of your policy, some of our health questions are only relevant if you're male or female.</small>
+        </div>
+
+        <div class="control-group row" ng-class="{'alert alert-block' : (!step.p_tobacco && steps[0].error)}">
+            <h2>Have you used any tobacco products or nicotine replacement products in the last 12 months?</h2>
+
+            <div class="clearfix span5">
+                <label class="radio">
+                    <input name="p_tobacco" ng-model="step.p_tobacco" value="smoker"  type="radio" class="styled-radio"  required>
+                    <span>Yes</span>
+                </label>
+                <label class="radio">
+                    <input name="p_tobacco" ng-model="step.tobacco"  value="non-smoker"  type="radio" class="styled-radio" required>
+                    <span>No</span>
+                </label>
+            </div>
+
+            <small class="span6" ng-class="{'info-error' : step.p_tobacco=='smoker'}">
+                You must not have smoked or used any nicotine replacement products within the last 12 months to be a non smoker, if you have you are classed as a smoker.
+            </small>
+        </div>
+    </div>
 
 
     <div class="control-group">

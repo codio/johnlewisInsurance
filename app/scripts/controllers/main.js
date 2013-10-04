@@ -15,7 +15,7 @@ App.controller('MainController', ['$scope', "InsuranceData", function ($scope, I
          active : false,
          visible : false,
          //data : null,
-         validateFunction : isValidPerson,
+         validateFunction : null,
          error : false
       },
       {
@@ -68,43 +68,20 @@ App.controller('MainController', ['$scope', "InsuranceData", function ($scope, I
 
       if (saveData(stepData)) {
          goToNextStep();
+
       }
 
-   };
-
-
-   function isValidPerson(stepData, isNoPartner) {
-      $scope.steps[1].error = false;
-      var isValid = false;
-
-      if (isNoPartner) {
-         if (!(stepData.hasOwnProperty('gender') && stepData.gender)) {
-            $scope.steps[1].error = true;
-         }
-
-         if(!(stepData.hasOwnProperty('tobacco') && stepData.tobacco)) {
-            $scope.steps[1].error = true;
-         }
-      }
-      else {
-         if (!(stepData.hasOwnProperty('p_gender') && stepData.p_gender)) {
-            $scope.steps[1].error = true;
-         }
-
-         if(!(stepData.hasOwnProperty('p_tobacco') && stepData.p_tobacco)) {
-            $scope.steps[1].error = true;
-         }
-      }
-
-      return !$scope.steps[1].error;
    };
 
    function isValideStep1 (stepData) {
       $scope.steps[0].error = false;
 
-      if (!isValidPerson(stepData, true)) {
+      if (!(stepData.hasOwnProperty('gender') && stepData.gender)) {
          $scope.steps[0].error = true;
-         $scope.steps[1].error = false;
+      }
+
+      if(!(stepData.hasOwnProperty('tobacco') && stepData.tobacco)) {
+         $scope.steps[0].error = true;
       }
 
       if(!(stepData.hasOwnProperty('isPartner') && stepData.isPartner != null)) {
@@ -113,11 +90,17 @@ App.controller('MainController', ['$scope', "InsuranceData", function ($scope, I
 
 
       if (stepData.hasOwnProperty('isPartner') && stepData.isPartner == '1') {
-         $scope.steps[1].visible = true;
+         //$scope.steps[1].visible = true;
+
+         if (!(stepData.hasOwnProperty('p_gender') && stepData.p_gender)) {
+            $scope.steps[0].error = true;
+         }
+
+         if(!(stepData.hasOwnProperty('p_tobacco') && stepData.p_tobacco)) {
+            $scope.steps[0].error = true;
+         }
       }
-      else {
-         $scope.steps[1].visible = false;
-      }
+
       return !$scope.steps[0].error;
 
    };

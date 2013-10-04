@@ -1,4 +1,4 @@
-App.controller("Step1Controller", ["$scope", "InsuranceData", function ($scope, InsuranceData) {
+App.controller("Step1Controller", ["$scope", "$rootScope","InsuranceData", function ($scope, $rootScope, InsuranceData) {
 
    $scope.step = InsuranceData;
 
@@ -19,10 +19,17 @@ App.controller("Step1Controller", ["$scope", "InsuranceData", function ($scope, 
       startDate: '01/01/1940'
    });
 
-   $('input').iCheck({
-     checkboxClass: 'icheckbox_square-green',
-     radioClass: 'iradio_square-green',
-     increaseArea: '20%' // optional
+   $('.styled-radio').iCheck({
+      checkboxClass: 'icheckbox_square-green',
+      radioClass: 'iradio_square-green',
+      increaseArea: '20%' // optional,
+   }).on('ifChanged', function(event){
+      var el = $(event.target),
+         dataName = el.attr('name');
+
+      $scope.step[dataName] = el.val();
+      $scope.$apply();
+
    });
 
    $('.datefield input').autotab_magic().autotab_filter('numeric');

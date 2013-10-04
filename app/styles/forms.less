@@ -116,7 +116,8 @@ label, select, textarea {
   float: right;
   text-align: right;
 
-  &#radio-me-partner {
+
+  &.vertical {
     width: 190px;
     margin-top: 10px;
   }
@@ -258,15 +259,20 @@ span.dropdown {
    }
 }
 
-.partner {
+.last-name-group.control-group {
+   margin-top: 5px;
+}
+
+.animate {
    .animation();
+   overflow: hidden;
    opacity: 0;
    height: 0;
-   max-height: 5000px; // for animation
 
    &.showed {
       opacity: 1;
       .animation();
+      max-height: 2000px; // for animation
       height: auto;
    }
 }

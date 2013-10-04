@@ -1,7 +1,7 @@
 <h1>Let us know what you want</h1>
 
 <form novalidate ng-controller="Step2Controller" >
-    <div class="control-group"  ng-class="{'alert alert-block' : ((!step.coverAmount || (step.coverAmount < 40000 || step.coverAmount > 750000)) && steps[2].error)}">
+    <div class="control-group "  ng-class="{'alert alert-block' : ((!step.coverAmount || (step.coverAmount < 40000 || step.coverAmount > 750000)) && steps[2].error)}">
 
         <div class="">
             <h2>Life cover amount</h2>
@@ -10,7 +10,7 @@
 
         <div class="input-prepend">
             <span class="add-on">&nbsp;&nbsp;&nbsp;$&nbsp;&nbsp;&nbsp;</span>
-            <input type="text" ng-model="step.coverAmount" ng-min="40000" ng-max="750000"  placeholder="Life cover amount" ng-change="changeAmount(step.coverAmount)" required>
+            <input type="text" ng-model="step.coverAmount" min="40000" max="750000"  placeholder="Life cover amount" ng-change="changeAmount(step.coverAmount)" required>
 
         </div>
 
@@ -51,64 +51,48 @@
 
     </div>
 
-    <div class="control-group"  ng-class="{'alert alert-block' : (!step.coverType && steps[2].error)}">
-        <div class="">
+    <div class="control-group row"  ng-class="{'alert alert-block' : (!step.coverType && steps[2].error)}">
             <h2>Cover type</h2>
-        </div>
 
-        <div class="">
-            <label class="radio">
-                <input type="radio" name="coverType" value="level" ng-model="step.coverType" checked>
-                Level term
+        <div class="clearfix span5">
+            <label class="radio vertical">
+                <input type="radio" class="styled-radio" name="coverType" value="level" ng-model="step.coverType">
+                <span>Level term</span>
             </label>
-            <div>
-                <small>
-                    Level term cover is typically used to cover a debt that doesn’t reduce over time e.g. an interest only mortgage or to provide a fixed amount to a loved one.
-                </small>
-            </div>
-
-            <div class="clearfix"></div>
-
-            <label class="radio">
-                <input type="radio" name="coverType" value="decreasing" ng-model="step.coverType">
-                Decreasing term
+            <label class="radio vertical">
+                <input type="radio" class="styled-radio" name="coverType" value="decreasing" ng-model="step.coverType">
+                <span>Decreasing term</span>
             </label>
-
-            <div>
-                <small>
-                    Decreasing value cover is typically used to cover a debt that reduces over time e.g. a repayment mortgage. We have assumed a 6% per year mortgage interest rate in our policy.
-                </small>
-            </div>
-            <div class="clearfix"></div>
         </div>
+        <small class="span6">
+            <div><strong>Level term</strong> cover is typically used to cover a debt that doesn’t reduce over time e.g. an interest only mortgage or to provide a fixed amount to a loved one.</div>
+            <div style="margin-top: 5px;"><strong>Decreasing</strong> value cover is typically used to cover a debt that reduces over time e.g. a repayment mortgage. We have assumed a 6% per year mortgage interest rate in our policy.</div>
+        </small>
+
     </div>
 
 
-    <div class="control-group"  ng-class="{'alert alert-block' : (!step.illnes && steps[2].error)}">
-        <div class="">
+    <div class="control-group row"  ng-class="{'alert alert-block' : (!step.illnes && steps[2].error)}">
             <h2>Include Critical Illness</h2>
-        </div>
 
-        <div class="">
+        <div class="clearfix span5">
             <label class="radio">
-                <input type="radio" name="tobacco" value="yes" ng-model="step.illnes">
-                Yes
+                <input type="radio" class="styled-radio" name="illnes" value="yes" ng-model="step.illnes">
+                <span>Yes</span>
             </label>
             <label class="radio">
-                <input type="radio" name="tobacco" value="no" ng-model="step.illnes">
-                No
+                <input type="radio" class="styled-radio" name="illnes" value="no" ng-model="step.illnes">
+                <span>No</span>
             </label>
         </div>
 
-        <div class="">
-            <small>
-                Critical illness provides cover if you suffer a critical illness such as a heart attack, stroke, cancer diagnosis (refer to the Policy Summary for a list of all illnesses we cover).
-            </small>
-        </div>
+        <small class="span6">
+            Critical illness provides cover if you suffer a critical illness such as a heart attack, stroke, cancer diagnosis (refer to the Policy Summary for a list of all illnesses we cover).
+        </small>
 
     </div>
 
-    <div class="control-group" ng-class="{'alert alert-block' : (!step.illnesAmount && steps[2].error)}"  ng-show="step.illnes=='yes'">
+    <div class="animate control-group" ng-class="{'alert alert-block' : (!step.illnesAmount && steps[2].error), 'showed' : (step.illnes=='yes')}">
         <div class="">
             <h2>Amount</h2>
         </div>
@@ -130,7 +114,7 @@
     </div>
 
 
-    <div class="control-group">
+    <div class="control-group row">
         <div class="row">
             <button type="submit" class="span5 offset4 btn btn-success" ng-click="submit(step)">Next</button>
         </div>

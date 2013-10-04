@@ -88,3 +88,22 @@ body.mobile {
 .control-group {
    margin-top : 25px;
 }
+
+.page {
+   display: none;
+   .animation();
+
+   &.showed {
+      display: block;
+      opacity: 1;
+      display: block;
+   }
+
+   &.not-showed {
+      .animation();
+      position: relative;
+      top: -150px;
+      left: -150px;
+      opacity: 0;
+   }
+}
