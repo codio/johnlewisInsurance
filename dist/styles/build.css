@@ -8046,6 +8046,17 @@ textarea {
 .control-group:nth-child(2) {
   margin-top: 5px;
 }
+.control-group.alert-block {
+  padding-top: inherit;
+  padding-bottom: inherit;
+  padding: inherit;
+  text-shadow: none;
+  background-color: inherit;
+  border: none;
+}
+.control-group.alert-block h4 {
+  color: red;
+}
 .datefield {
   display: inline-block;
   padding: 0;
