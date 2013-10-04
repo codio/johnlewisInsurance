@@ -1,11 +1,11 @@
-App.controller('MainController', ['$scope',function ($scope) {
+App.controller('MainController', ['$scope', "InsuranceData", function ($scope, InsuranceData) {
    $scope.steps = [
       {
          name : "About you",
          completed : false,
          active : true,
          visible : true,
-         data : null,
+         //data : null,
          validateFunction : isValideStep1,
          error : false
       },
@@ -14,7 +14,7 @@ App.controller('MainController', ['$scope',function ($scope) {
          completed : false,
          active : false,
          visible : false,
-         data : null,
+         //data : null,
          validateFunction : isValidPerson,
          error : false
       },
@@ -23,7 +23,7 @@ App.controller('MainController', ['$scope',function ($scope) {
          completed : false,
          active : false,
          visible : true,
-         data : null,
+         //data : InsuranceData,
          validateFunction : isValidStep2,
          error : false
       },
@@ -32,11 +32,16 @@ App.controller('MainController', ['$scope',function ($scope) {
          completed : false,
          active : false,
          visible : true,
-         data : null,
+         //data : null,
          validateFunction : isValidDefault,
          error : false
       }
    ];
+
+   $scope.formData = InsuranceData;
+
+
+
 
    $scope.submit = function(stepData) {
 
@@ -52,7 +57,7 @@ App.controller('MainController', ['$scope',function ($scope) {
          var activeStep = _.findWhere($scope.steps, {visible : true, active : true});
 
          if (activeStep && activeStep.hasOwnProperty('validateFunction') && activeStep.validateFunction(stepData)) {
-            activeStep.data = stepData;
+            //activeStep.data = stepData;
             activeStep.completed = true;
             activeStep.active = false;
             return true;
@@ -68,16 +73,27 @@ App.controller('MainController', ['$scope',function ($scope) {
    };
 
 
-   function isValidPerson(stepData) {
+   function isValidPerson(stepData, isNoPartner) {
       $scope.steps[1].error = false;
-
       var isValid = false;
-      if (!(stepData.hasOwnProperty('gender') && stepData.gender)) {
-         $scope.steps[1].error = true;
-      }
 
-      if(!(stepData.hasOwnProperty('tobacco') && stepData.tobacco)) {
-         $scope.steps[1].error = true;
+      if (isNoPartner) {
+         if (!(stepData.hasOwnProperty('gender') && stepData.gender)) {
+            $scope.steps[1].error = true;
+         }
+
+         if(!(stepData.hasOwnProperty('tobacco') && stepData.tobacco)) {
+            $scope.steps[1].error = true;
+         }
+      }
+      else {
+         if (!(stepData.hasOwnProperty('p_gender') && stepData.p_gender)) {
+            $scope.steps[1].error = true;
+         }
+
+         if(!(stepData.hasOwnProperty('p_tobacco') && stepData.p_tobacco)) {
+            $scope.steps[1].error = true;
+         }
       }
 
       return !$scope.steps[1].error;
@@ -86,7 +102,7 @@ App.controller('MainController', ['$scope',function ($scope) {
    function isValideStep1 (stepData) {
       $scope.steps[0].error = false;
 
-      if (!isValidPerson(stepData)) {
+      if (!isValidPerson(stepData, true)) {
          $scope.steps[0].error = true;
          $scope.steps[1].error = false;
       }
@@ -147,3 +163,27 @@ App.controller('MainController', ['$scope',function ($scope) {
    };
 
 }]);
+
+
+App.factory('InsuranceData', function() {
+   return {
+      formality : null,
+      firstName : null,
+      birthday : null,
+      gender : null,
+      tobacco : null,
+      isPartner : null,
+
+      p_formality : null,
+      p_firstName : null,
+      p_birthday : null,
+      p_gender : null,
+      p_tobacco : null,
+
+      coverAmount: null,
+      coverTerm : null,
+      coverType : null,
+      illnes : null,
+      illnesAmount : null
+   };
+});

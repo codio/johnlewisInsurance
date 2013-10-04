@@ -1,16 +1,16 @@
 <h1>Let us know what you want</h1>
 
 <form novalidate ng-controller="Step2Controller" >
-    <div class="control-group">
+    <div class="control-group"  ng-class="{'alert alert-block' : ((!step.coverAmount || (step.coverAmount < 40000 || step.coverAmount > 750000)) && steps[2].error)}">
 
         <div class="">
-            <h2 ng-class="{'info-error' : (!step.coverAmount && steps[2].error)}">Life cover amount</h2>
+            <h2>Life cover amount</h2>
         </div>
 
 
         <div class="input-prepend">
             <span class="add-on">&nbsp;&nbsp;&nbsp;$&nbsp;&nbsp;&nbsp;</span>
-            <input type="text" class="" ng-model="step.coverAmount" ng-min="40000" ng-max="750000"  placeholder="Life cover amount" required>
+            <input type="text" ng-model="step.coverAmount" ng-min="40000" ng-max="750000"  placeholder="Life cover amount" ng-change="changeAmount(step.coverAmount)" required>
 
         </div>
 
@@ -27,8 +27,7 @@
         </div>
     </div>
 
-
-    <div class="control-group"  ng-class="{'alert alert-block' : (!step.coverTerm && steps[2].error)}">
+    <div class="control-group"  ng-class="{'alert alert-block' : ((!step.coverAmount || (step.coverTerm < 5 || step.coverTerm > 40)) && steps[2].error)}">
         <div class="">
             <h2>Cover term</h2>
         </div>

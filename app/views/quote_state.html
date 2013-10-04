@@ -1,7 +1,7 @@
 
-<div class="container-fluid">
+<div class="">
 
-    <div class="row">
+    <div class="control-groups " ng-hide="formData.formality || formData.firstName || formData.birthday || formData.coverAmount || formData.coverTerm">
         <h3>Help and tips</h3>
         <p>
             <strong>Single or Joint policy…</strong>
@@ -15,39 +15,35 @@
     </div>
 
 
-    <div class="row"  ng-show="steps[0].data" >
-        <h3>Your Quote</h3>
-        <strong>You : </strong>
-        <span>
-            {{steps[0].data.formality}} {{steps[0].data.firstName}}
-        </span>
-        <span class="span11 offset1">
-            <span ng-show="steps[0].data.birthday">was born {{steps[0].data.birthday}} years<br></span>
-
-            {{steps[0].data.tobacco}}
-        </span>
+    <div class="control-groups alert alert-info" ng-show="formData.formality || formData.firstName">
+        <div class="text-center">
+            <strong>You : </strong><span >{{formData.formality}} {{formData.firstName}}</span>
+        </div>
+        <div class="text-center" ng-show="formData.isPartner && ( formData.p_formality || formData.p_firstName)">
+            <strong>Your Partner : </strong><span >{{formData.p_formality}} {{formData.p_firstName}}</span>
+        </div>
     </div>
 
-    <div class="row" ng-show="steps[1].data" >
-        <strong>Your Partner :</strong>
-        <span>
-            {{steps[1].data.formality}} {{steps[1].data.firstName}}
-        </span>
-        <span class="span11 offset1">
-            <span  ng-show="steps[1].data.birthday">was born {{steps[1].data.birthday}} years<br></span>
-            {{steps[1].data.tobacco}}
-        </span>
+    <div class="control-groups alert alert-success" ng-show="formData.coverAmount || formData.coverTerm">
+        <div ng-show="formData.coverAmount" class="text-center">
+            <h2>Your quote for:</h2>
+            <h2><span style="font-size: 2em;">£{{formData.coverAmount}}</span></h2>
+            <h2>Life Insurance</h2>
+        </div>
+        <div ng-show="formData.coverAmount && formData.coverTerm"  class="text-center">
+            <h2>over <span style="font-size: 1.4em;">{{formData.coverTerm}}</span> years</h2>
+        </div>
     </div>
 
-    <div class="row" ng-show="steps[2].data" >
-        <strong>
-            Your quote for
-            <br>
-            <span class="text-success">£{{steps[2].data.coverAmount}} Life insurance</span>
-            <br>
-            <span class="text-success">over {{steps[2].data.coverTerm}} years</span>
-        </strong>
 
+    <div class="control-groups alert alert-success" ng-show="formData.coverAmount && formData.coverTerm && formData.coverType">
+        <div class="text-center" >
+            <h2>Your quote:</h2>
+            <div><strong style="font-size: 2.6em;">$440,000</strong></div>
+            <div>for only</div>
+            <div><strong style="font-size: 2em;">$23.16</strong></div>
+            <div>per month</div>
+        </div>
     </div>
 
 </div>
