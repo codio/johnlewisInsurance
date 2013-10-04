@@ -312,7 +312,8 @@ module.exports = function (grunt) {
                   'generated/*'
                ]
             }, {
-                cwd: '<%= yeoman.app %>/bower_components/jquery-icheck/skins/square',
+                expand: true,
+                cwd: '<%= yeoman.app %>/bower_components/jquery-icheck/skins/square/',
                 dest: '<%= yeoman.dist %>/styles',
                 src: 'green*.png'
             }
