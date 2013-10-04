@@ -8,5 +8,14 @@
 @bg-container-border : #dedbd2;
 
 
+.animation (@name: all, @duration: 300ms, @delay: 0, @ease: linear) {
+   -webkit-animation: @name @duration @ease;
+   -moz-animation:    @name @duration @ease;
+   -ms-animation:     @name @duration @ease;
+   animation:         @name @duration @ease;
+}
+
+
+
 
 

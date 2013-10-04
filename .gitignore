@@ -4,5 +4,6 @@ dist
 .sass-cache
 app/bower_components
 /.idea/
+app/scripts/templates.js
 *~
 npm-debug.log

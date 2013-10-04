@@ -3,7 +3,7 @@
 <form novalidate class="" ng-controller="Step1Controller">
 
     <div class="control-group ">
-        <div class="">
+        <div class="" ng-hide="true">
             <h2>Your Name</h2>
         </div>
 
@@ -122,6 +122,9 @@
                 </small>
             </div>
     </div>
+
+    <div class="partner" ng-class="{'showed': step.isPartner=='1'}" ng-include="'views/step1_partner.html'"></div>
+
 
     <div class="control-group">
         <div class="row">

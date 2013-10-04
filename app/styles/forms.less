@@ -100,3 +100,16 @@ span.dropdown {
    }
 }
 
+.partner {
+   .animation();
+   opacity: 0;
+   height: 0;
+   max-height: 5000px; // for animation
+
+   &.showed {
+      opacity: 1;
+      .animation();
+      height: auto;
+   }
+}
+
