@@ -51,7 +51,7 @@
 
         <div class="span6">
             <div>
-                <small class="text-warning" ng-show="(step.coverTerm && (step.coverTerm < 5 || step.coverTerm > 40))" >
+                <small class="text-error" ng-show="(step.coverTerm && (step.coverTerm < 5 || step.coverTerm > 40))" >
                     Your cover term must be between 5 and 40
                 </small>
             </div>
@@ -136,8 +136,8 @@
 
     <div class="control-group row">
         <div class="row">
-            <button type="submit" class="span5 offset1 btn btn-default" ng-click="backStep(backStepNumber)">Back</button>
-            <button type="submit" class="span5 btn btn-success" ng-click="submit(step)">Next</button>
+            <button type="submit" class="span5 offset1  btn btn-large btn-default" ng-click="backStep(backStepNumber)">Back</button>
+            <button type="submit" class="span5 btn btn-large btn-success" ng-click="submit(step)">Next</button>
         </div>
 
         <div class="row"  ng-show="steps[0].error">
