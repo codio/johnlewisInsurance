@@ -7887,17 +7887,53 @@ a.badge:focus {
 
 
 #steps .step {
-  font-size: 1em;
-  text-align: center;
   color: #acacac;
-  min-height: 1em;
+  position: relative;
+  float: left;
+  height: 46px;
+  padding: 0 20px 0 30px;
+  margin: 0;
+  font-size: 16px;
+  line-height: 46px;
+  cursor: default;
+  background: #edeae4;
+  text-align: center;
+  border-left: 1px solid #d4d4d4;
+  border-top: 1px solid #d4d4d4;
+  border-bottom: 1px solid #d4d4d4;
+  font-weight: 100;
 }
 #steps .step .active {
   color: #5f5f5f;
   font-weight: bold;
 }
 #steps .step .active.green {
-  color: #284e36;
+  color: #1b7e5a;
+  text-transform: uppercase;
+}
+#steps .step:first-child {
+  padding-left: 20px;
+  border-radius: 2px 0 0 2px;
+}
+#steps .step .chevron {
+  position: absolute;
+  top: 0;
+  right: -14px;
+  z-index: 1;
+  display: block;
+  border: 23px solid transparent;
+  border-right: 0;
+  border-left: 14px solid #d4d4d4;
+}
+#steps .step .chevron:before {
+  position: absolute;
+  top: -24px;
+  right: 1px;
+  display: block;
+  border: 24px solid transparent;
+  border-right: 0;
+  border-left: 14px solid #edeae4;
+  content: "";
 }
 select,
 textarea,
@@ -7972,6 +8008,96 @@ textarea {
   padding: 0;
   line-height: 12px;
 }
+.radio {
+  padding-left: 5px;
+  width: 100px;
+  float: right;
+  text-align: right;
+}
+.radio#radio-me-partner {
+  width: 190px;
+}
+.radio .iradio_square-green {
+  float: right;
+  margin-right: 8px;
+}
+.radio > span {
+  position: relative;
+  top: 1px;
+  font-weight: 100;
+  text-align: right;
+  padding-right: 8px;
+}
+#first-name-control {
+  margin-left: 86px;
+}
+#first-name-control > span a {
+  width: 63px;
+}
+.control-group {
+  margin-bottom: 40px;
+}
+.control-group:first-child,
+.control-group:nth-child(2),
+.control-group:nth-child(3) {
+  margin-bottom: 0;
+}
+.control-group:nth-child(2) {
+  margin-top: 5px;
+}
+.datefield {
+  display: inline-block;
+  padding: 0;
+  color: #666;
+  height: 26px;
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border linear 0.2s, box-shadow linear 0.2s;
+  transition: border linear 0.2s, box-shadow linear 0.2s;
+}
+.datefield * {
+  display: inline-block;
+}
+.datefield:focus {
+  border-color: rgba(82, 168, 236, 0.8);
+  outline: 0;
+  outline: thin dotted \9;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+}
+.datefield input {
+  width: 1.7em;
+  padding: 4px 6px;
+  border: none;
+  font-size: 100%;
+  background: none;
+  color: #000;
+  box-shadow: none;
+  margin: 0;
+}
+.datefield input#year {
+  width: 2.6em;
+}
+.datefield input:focus {
+  outline: none;
+  border: none;
+  box-shadow: none;
+}
+h2 {
+  border-bottom: 2px solid #f9f8f6;
+  padding-bottom: 8px;
+  margin-bottom: 13px;
+  font-weight: 100 !important;
+  color: #000;
+  font-size: 16px !important;
+  line-height: 1.4em !important;
+}
+.row h2 {
+  margin-left: 20px;
+}
+small {
+  color: #999;
+}
 span.dropdown {
   padding: 4px 0;
 }
@@ -8007,6 +8133,7 @@ footer {
   border-top: 1px solid #ccc;
   padding: 15px 0 20px 16px;
   margin: 40px auto 0;
+  font-size: 12px;
 }
 footer p.address {
   margin-bottom: 0;
