@@ -13,6 +13,10 @@
 
     <link rel="stylesheet" href="styles/build.css"/>
     <!-- endbuild -->
+
+    <!-- build:css styles/vendors.css -->
+    <link rel="stylesheet" href="bower_components/jquery-icheck/skins/square/green.css"/>
+    <!-- endbuild -->
 </head>
 <body ng-app="App" ng-class="{'mobile' : isMobile}">
 <!--[if lt IE 7]>
@@ -35,9 +39,7 @@
         </div>
     </header>
 
-
-    <div  class="page-content" ng-view=""></div>
-
+    <div class="page-content" ng-view=""></div>
 
     <footer>
         <div ng-controller="FooterController" id="page-footer">
@@ -53,7 +55,6 @@
         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
             m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
     })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
     ga('create', 'UA-XXXXX-X');
     ga('send', 'pageview');
 </script>
@@ -64,6 +65,7 @@
 <script src="bower_components/underscore/underscore.js"></script>
 <script src="bower_components/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
 <script src="bower_components/bootstrap/js/bootstrap-dropdown.js"></script>
+<script src="bower_components/jquery-icheck/jquery.icheck.js"></script>
 <!-- endbuild -->
 
 <!-- build:js scripts/modules.js -->
@@ -73,6 +75,7 @@
 <!-- endbuild -->
 
 <!-- build:js({.tmp,app}) scripts/build.js -->
+        <script src="scripts/vendors/jquery.autotab.js"></script>
         <script src="scripts/app.js"></script>
 <script src="scripts/templates.js"></script>
 <script src="scripts/runs/is-mobile.js"></script>
