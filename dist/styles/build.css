@@ -8016,6 +8016,7 @@ textarea {
 }
 .radio#radio-me-partner {
   width: 190px;
+  margin-top: 10px;
 }
 .radio .iradio_square-green {
   float: right;
