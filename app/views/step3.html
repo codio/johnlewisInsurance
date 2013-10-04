@@ -1,21 +1,61 @@
 <h1>Your quote</h1>
 <form  name="QuoteForm2" novalidate ng-submit="submit()"  class="container-fluid">
-    <div class="row">
+    <div class="control-group row">
         <div class="span12">
             The quote we've supplied so far is a quick quote. To provide a final quote we need a little more information about you, your health, occupation and lifestyle. This will take about 10 minutes, you can save your information at any point and complete it later.
+
+            <br><br>
         </div>
+
     </div>
 
+
+
+    <div class="result-container" ng-show="isMobile">
+
+        <div class="control-groups alert alert-success" ng-show="formData.coverAmount || formData.coverTerm">
+            <div ng-show="formData.coverAmount" class="text-center">
+                <h2>Your quote for:</h2>
+                <h2><span style="font-size: 2em;">£{{formData.coverAmount}}</span></h2>
+                <h2>Life Insurance</h2>
+            </div>
+            <div ng-show="formData.coverAmount && formData.coverTerm"  class="text-center">
+                <h2>over <span style="font-size: 1.4em;">{{formData.coverTerm}}</span> years</h2>
+            </div>
+        </div>
+
+
+        <div class="control-groups alert alert-success" ng-show="formData.coverAmount && formData.coverTerm && formData.coverType">
+            <div class="text-center" >
+                <h2>Your quote:</h2>
+                <h2>
+                    <strong style="font-size: 2.6em;">$440,000</strong>
+                </h2>
+                <h2>for only</h2>
+                <h2><strong style="font-size: 2em;">$23.16</strong></h2>
+                <h2>per month</h2>
+            </div>
+        </div>
+
+    </div>
 
     <div class="control-group row">
         <div class="span12">
-            <a href="" class="span3 offset5 btn btn-large btn-success" id="next-btn-bottom">Continue</a>
+            <a href="" class="span5 offset3 btn btn-large btn-success" >Continue</a>
         </div>
     </div>
 
     <div class="row">
         <div class="span12">
-            <a href="" class="span5 offset4  btn btn-link">
+            <a href="" class="span5 offset3  btn btn-link" ng-click="submit(2)">
+                <small><span class="text-success"><i class="icon-book"></i>or go Back</span></small>
+            </a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="span12">
+            <a href="" class="span5 offset3  btn btn-link">
                 <small><span class="text-success"><i class="icon-book"></i>or save it for later</span></small>
             </a>
         </div>

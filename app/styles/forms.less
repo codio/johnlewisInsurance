@@ -17,6 +17,7 @@
       border-top: 1px solid #d4d4d4;
       border-bottom: 1px solid #d4d4d4;
       font-weight: 100;
+      text-transform: uppercase;
 
       .active {
          color: @main-grey-color;
@@ -24,7 +25,6 @@
 
          &.green {
             color : @green;
-            text-transform: uppercase;
          }
       }
 
@@ -136,12 +136,27 @@ label, select, textarea {
   }
 }
 
-#first-name-control {
-  margin-left: 86px;
+.mobile {
+   .radio.vertical {
+      margin-top: 0;
+   }
+}
 
-  > span a {
-    width: 63px;
-  }
+body:not(.mobile) {
+   .first-name-control {
+      margin-left: 86px;
+
+      > span a {
+         width: 63px;
+      }
+   }
+}
+
+.mobile .first-name-control {
+
+   > input {
+      display: block;
+   }
 }
 
 .control-group {
@@ -226,6 +241,12 @@ h2 {
   }
 }
 
+.result-container {
+   h2 {
+      border: none;
+   }
+}
+
 small {
   color: #999;
 }
@@ -271,15 +292,19 @@ span.dropdown {
 
 .animate {
    .animation();
-   overflow: hidden;
+//   overflow-y: hidden;
+  // overflow-x: visible;
    opacity: 0;
    height: 0;
+   display: none;
 
    &.showed {
+      display: block;
       opacity: 1;
       .animation();
       max-height: 2000px; // for animation
       height: auto;
    }
 }
+
 

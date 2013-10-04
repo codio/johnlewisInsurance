@@ -1,7 +1,7 @@
 <form novalidate class="" ng-controller="Step1Controller">
 
     <div class="control-group  form-horizontal">
-        <div class="controls" id="first-name-control">
+        <div class="controls first-name-control">
             <span class="dropdown">
                 <a class="btn dropdown-toggle" data-toggle="dropdown" href="#" ng-model="step.formality">
                     {{step.formality}}
@@ -41,8 +41,10 @@
         </div>
     </div>
 
-    <div class="control-group row" ng-class="{'alert alert-block' : (!step.gender && steps[0].error)}">
+    <div class="control-group row" ng-class="{'alert alert-block alert-error' : (!step.gender && steps[0].error)}">
         <h2>Your Gender</h2>
+        
+        <div ng-include="'views/error.html'"></div>
 
         <div class="clearfix span5">
             <label class="radio">
@@ -58,8 +60,10 @@
         <small class="span6">While we no longer use your gender to determine the cost of your policy, some of our health questions are only relevant if you're male or female.</small>
     </div>
 
-    <div class="control-group row" ng-class="{'alert alert-block' : (!step.tobacco && steps[0].error)}">
+    <div class="control-group row" ng-class="{'alert alert-block alert-error' : (!step.tobacco && steps[0].error)}">
         <h2>Have you used any tobacco products or nicotine replacement products in the last 12 months?</h2>
+
+        <div ng-include="'views/error.html'"></div>
 
         <div class="clearfix span5">
             <label class="radio">
@@ -75,10 +79,13 @@
         <small class="span6" ng-class="{'info-error' : step.tobacco=='smoker'}">
             You must not have smoked or used any nicotine replacement products within the last 12 months to be a non smoker, if you have you are classed as a smoker.
         </small>
+
     </div>
 
-    <div class="control-group row" ng-class="{'alert alert-block' : (!step.isPartner && steps[0].error)}">
+    <div class="control-group row" ng-class="{'alert alert-block alert-error' : (!step.isPartner && steps[0].error)}">
         <h2>Do you want to cover yourself, or both you and a partner?</h2>
+
+        <div ng-include="'views/error.html'"></div>
 
         <div class="clearfix span5">
             <label class="radio">
@@ -89,6 +96,7 @@
                 <input type="radio" class="styled-radio"  ng-model="step.isPartner" name="isPartner" value="1" required>
                 <span>Me and a partner</span>
             </label>
+
 
             <!--<div class="popover right">-->
                 <!--<div class="arrow"></div>-->
@@ -108,20 +116,20 @@
         <h1>Your Partner</h1>
 
         <div class="control-group  form-horizontal">
-            <div class="controls" id="first-name-control">
+            <div class="controls first-name-control">
             <span class="dropdown">
                 <a class="btn dropdown-toggle" data-toggle="dropdown" href="#" ng-model="step.p_formality">
-                    {{step.formality}}
+                    {{step.p_formality}}
                     <span ng-hide="step.p_formality">Select...</span>
                     <span class="caret"></span>
                 </a>
 
                 <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
-                    <li><a tabindex="-1" href="" ng-click="setFormality('Mr')">Mr</a></li>
-                    <li><a tabindex="-1" href="" ng-click="setFormality('Mrs')">Mrs</a></li>
-                    <li><a tabindex="-1" href="" ng-click="setFormality('Miss')">Miss</a></li>
-                    <li><a tabindex="-1" href="" ng-click="setFormality('Ms')">Ms</a></li>
-                    <li><a tabindex="-1" href="" ng-click="setFormality('Doctor')">Doctor</a></li>
+                    <li><a tabindex="-1" href="" ng-click="setFormality('Mr', true)">Mr</a></li>
+                    <li><a tabindex="-1" href="" ng-click="setFormality('Mrs', true)">Mrs</a></li>
+                    <li><a tabindex="-1" href="" ng-click="setFormality('Miss', true)">Miss</a></li>
+                    <li><a tabindex="-1" href="" ng-click="setFormality('Ms', true)">Ms</a></li>
+                    <li><a tabindex="-1" href="" ng-click="setFormality('Doctor', true)">Doctor</a></li>
                 </ul>
             </span>
 
@@ -148,8 +156,10 @@
             </div>
         </div>
 
-        <div class="control-group row" ng-class="{'alert alert-block' : (!step.p_gender && steps[0].error)}">
+        <div class="control-group row" ng-class="{'alert alert-block alert-error' : (!step.p_gender && steps[0].error)}">
             <h2>Your Gender</h2>
+
+            <div ng-include="'views/error.html'"></div>
 
             <div class="clearfix span5">
                 <label class="radio">
@@ -163,10 +173,13 @@
             </div>
 
             <small class="span6">While we no longer use your gender to determine the cost of your policy, some of our health questions are only relevant if you're male or female.</small>
+
         </div>
 
-        <div class="control-group row" ng-class="{'alert alert-block' : (!step.p_tobacco && steps[0].error)}">
+        <div class="control-group row" ng-class="{'alert alert-block alert-error' : (!step.p_tobacco && steps[0].error)}">
             <h2>Have you used any tobacco products or nicotine replacement products in the last 12 months?</h2>
+
+            <div ng-include="'views/error.html'"></div>
 
             <div class="clearfix span5">
                 <label class="radio">
@@ -188,13 +201,7 @@
 
     <div class="control-group">
         <div class="row">
-            <button type="submit" class="span3 offset5 btn btn-success" id="next-btn-bottom" ng-click="submit(step)">Next</button>
-        </div>
-
-        <div class="row"  ng-show="steps[0].error">
-                <span class="span5 offset4 text-warning">
-                    <small>Not all required fields are filled in correctly</small>
-                </span>
+            <button type="submit" class="span5 offset3 btn btn-large btn-success" ng-click="submit(step)">Next</button>
         </div>
     </div>
 
