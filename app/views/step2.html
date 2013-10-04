@@ -1,58 +1,76 @@
 <h1>Let us know what you want</h1>
 
 <form novalidate ng-controller="Step2Controller" >
-    <div class="control-group "  ng-class="{'alert alert-block' : ((!step.coverAmount || (step.coverAmount < 40000 || step.coverAmount > 750000)) && steps[2].error)}">
+    <div class="control-group row"  ng-class="{'alert alert-block alert-error' : ((!step.coverAmount || (step.coverAmount < 40000 || step.coverAmount > 750000)) && steps[2].error)}">
 
         <div class="">
             <h2>Life cover amount</h2>
         </div>
 
+        <div ng-include="'views/error.html'"></div>
 
-        <div class="input-prepend">
-            <span class="add-on">&nbsp;&nbsp;&nbsp;$&nbsp;&nbsp;&nbsp;</span>
-            <input type="text" ng-model="step.coverAmount" min="40000" max="750000"  placeholder="Life cover amount" ng-change="changeAmount(step.coverAmount)" required>
+        <div class="clearfix span5">
+            <div class="input-prepend">
+                <span class="add-on">&nbsp;&nbsp;&nbsp;$&nbsp;&nbsp;&nbsp;</span>
+                <input type="text" ng-model="step.coverAmount" min="40000" max="750000"  placeholder="Life cover amount" ng-change="changeAmount(step.coverAmount)" required>
 
+            </div>
         </div>
 
-        <div>
-            <small class="text-warning" ng-show="step.coverAmount.$error || (step.coverAmount && (step.coverAmount < 40000 || step.coverAmount > 750000))">
-                Cover amount for Life insurance must be between £40,000 and £750,000
-            </small>
-        </div>
 
-        <div class="">
-            <small  class="">
-                How much cover you need is personal, but consider how much of your financial responsibilities you want paid if you were to die e.g. your mortgage, cost of bringing up children. We can offer up to £600,000 depending how old you are.
-            </small>
+        <div class="span6">
+            <div>
+                <small class=" text-error" ng-show="step.coverAmount.$error || (step.coverAmount && (step.coverAmount < 40000 || step.coverAmount > 750000))">
+                    Cover amount for Life insurance must be between £40,000 and £750,000
+                </small>
+            </div>
+
+            <div>
+                <small>
+                    How much cover you need is personal, but consider how much of your financial responsibilities you want paid if you were to die e.g. your mortgage, cost of bringing up children. We can offer up to £600,000 depending how old you are.
+                </small>
+            </div>
+
         </div>
     </div>
 
-    <div class="control-group"  ng-class="{'alert alert-block' : ((!step.coverAmount || (step.coverTerm < 5 || step.coverTerm > 40)) && steps[2].error)}">
+    <div class="control-group row"  ng-class="{'alert alert-block alert-error' : ((!step.coverAmount || (step.coverTerm < 5 || step.coverTerm > 40)) && steps[2].error)}">
         <div class="">
             <h2>Cover term</h2>
         </div>
 
-        <div class="input-append">
-            <input  type="text" class="" placeholder="Cover term" ng-model="step.coverTerm" required>
-            <span class="add-on">years</span>
+        <div ng-include="'views/error.html'"></div>
+
+
+        <div class="clearfix span5">
+            <div class="input-append">
+                <input  type="text" class="" placeholder="Cover term" ng-model="step.coverTerm" required>
+                <span class="add-on">years</span>
+            </div>
         </div>
-        <div>
-            <small class="text-warning" ng-show="(step.coverTerm && (step.coverTerm < 5 || step.coverTerm > 40))" >
-                Your cover term must be between 5 and 40
-            </small>
+
+        <div class="span6">
+            <div>
+                <small class="text-warning" ng-show="(step.coverTerm && (step.coverTerm < 5 || step.coverTerm > 40))" >
+                    Your cover term must be between 5 and 40
+                </small>
+            </div>
+            <div>
+                <small>
+                    Consider how long your major financial responsibilities are likely to last e.g. paying off a mortgage, bringing up children. You can take out our Life Insurance for up to 30 years or until the age of 70.
+                </small>
+            </div>
         </div>
 
 
-        <div>
-            <small>
-                Consider how long your major financial responsibilities are likely to last e.g. paying off a mortgage, bringing up children. You can take out our Life Insurance for up to 30 years or until the age of 70.
-            </small>
-        </div>
+
 
     </div>
 
-    <div class="control-group row"  ng-class="{'alert alert-block' : (!step.coverType && steps[2].error)}">
+    <div class="control-group row"  ng-class="{'alert alert-block alert-error' : (!step.coverType && steps[2].error)}">
             <h2>Cover type</h2>
+
+        <div ng-include="'views/error.html'"></div>
 
         <div class="clearfix span5">
             <label class="radio vertical">
@@ -72,8 +90,10 @@
     </div>
 
 
-    <div class="control-group row"  ng-class="{'alert alert-block' : (!step.illnes && steps[2].error)}">
+    <div class="control-group row"  ng-class="{'alert alert-block alert-error' : (!step.illnes && steps[2].error)}">
             <h2>Include Critical Illness</h2>
+
+        <div ng-include="'views/error.html'"></div>
 
         <div class="clearfix span5">
             <label class="radio">
@@ -92,12 +112,14 @@
 
     </div>
 
-    <div class="animate control-group" ng-class="{'alert alert-block' : (!step.illnesAmount && steps[2].error), 'showed' : (step.illnes=='yes')}">
+    <div class="animate control-group row" ng-class="{'alert alert-block alert-error' : (!step.illnesAmount && steps[2].error), 'showed' : (step.illnes=='yes')}">
         <div class="">
             <h2>Amount</h2>
         </div>
 
-        <div class="">
+        <div ng-include="'views/error.html'"></div>
+
+        <div class=" clearfix span5">
 
             <div class="input-prepend">
                 <span class="add-on">&nbsp;&nbsp;&nbsp;$&nbsp;&nbsp;&nbsp;</span>
@@ -105,11 +127,9 @@
             </div>
         </div>
 
-        <div class="">
-            <small>
-                You can choose between 10% and 100% of your Life cover amount, up to £600,000 depending how old you are.
-            </small>
-        </div>
+        <small class="span6">
+            You can choose between 10% and 100% of your Life cover amount, up to £600,000 depending how old you are.
+        </small>
 
     </div>
 

@@ -59,7 +59,17 @@ App.controller('MainController', ['$scope', "InsuranceData", function ($scope, I
          if (activeStep && activeStep.hasOwnProperty('validateFunction') && activeStep.validateFunction(stepData)) {
             //activeStep.data = stepData;
             activeStep.completed = true;
-            activeStep.active = false;
+            var el = $('.page.showed');
+            el
+               .css({position:'absolute'})
+               .animate({
+                  opacity: 0,
+                  left: -300
+               }, 300, function () {
+                  el.attr('style', null);
+                  activeStep.active = false;
+                  $scope.$apply();
+               });
             return true;
          }
 
@@ -68,7 +78,6 @@ App.controller('MainController', ['$scope', "InsuranceData", function ($scope, I
 
       if (saveData(stepData)) {
          goToNextStep();
-
       }
 
    };
@@ -112,7 +121,7 @@ App.controller('MainController', ['$scope', "InsuranceData", function ($scope, I
          $scope.steps[2].error = true;
       }
 
-      if(!(stepData.hasOwnProperty('coverTerm') && (stepData.coverTerm > 5 && stepData.coverTerm < 40) )) {
+      if(!(stepData.hasOwnProperty('coverTerm') && (stepData.coverTerm >= 5 && stepData.coverTerm <= 40) )) {
          $scope.steps[2].error = true;
       }
 

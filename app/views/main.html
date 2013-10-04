@@ -15,7 +15,7 @@
 <div>
     <div class="row-fluid">
 
-        <div class="span8">
+        <div class="span8 page-wrap">
             <div class="data-container">
                 <div class="page" ng-class="{showed: steps[0].active, 'not-showed': !steps[0].active}">
                     <div ng-include="'views/step1.html'"></div>
@@ -33,7 +33,7 @@
 
         </div>
         <div class="span4" ng-class="{'hidden' : isMobile}">
-            <div class="data-container">
+            <div class="data-container result-container">
                 <div ng-include="'views/quote_state.html'"></div>
             </div>
         </div>

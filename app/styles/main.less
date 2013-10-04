@@ -71,8 +71,18 @@ body.mobile {
       border: none;
       background: none;
    }
+
+   .hide-mobile {
+      display: none !important;
+   }
+
 }
 
+body:not(.mobile) {
+   .hide-desktop {
+      display: none !important;
+   }
+}
 /* BOOTSTRAP */
 
 @media (min-width: 1200px) {
@@ -87,23 +97,44 @@ body.mobile {
 
 .control-group {
    margin-top : 25px;
-}
+   position: relative;
 
-.page {
-   display: none;
-   .animation();
-
-   &.showed {
-      display: block;
-      opacity: 1;
-      display: block;
+   .error-popover {
+      display: none;
    }
 
-   &.not-showed {
-      .animation();
+   &.alert {
+      .error-popover {
+         display: block;
+         width: 197px;
+         left: 95%;
+         top: 62px;
+      }
+
+      .mobile-error {
+         text-align: right;
+         width: 100%;
+      }
+   }
+}
+
+
+.page-wrap {
+   position: relative;
+
+   .page {
       position: relative;
-      top: -150px;
-      left: -150px;
-      opacity: 0;
+      top: 0;
+
+      &.showed {
+         display: block;
+         //opacity: 1;
+      }
+
+      &.not-showed {
+         display: none;
+      }
    }
+
 }
+

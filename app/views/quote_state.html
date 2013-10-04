@@ -17,10 +17,10 @@
 
     <div class="control-groups alert alert-info" ng-show="formData.formality || formData.firstName">
         <div class="text-center">
-            <strong>You : </strong><span >{{formData.formality}} {{formData.firstName}}</span>
+            <strong>You : </strong><span >{{formData.formality}} {{formData.firstName}} {{formData.lastName}}</span>
         </div>
         <div class="text-center" ng-show="formData.isPartner && ( formData.p_formality || formData.p_firstName)">
-            <strong>Your Partner : </strong><span >{{formData.p_formality}} {{formData.p_firstName}}</span>
+            <strong>Your Partner : </strong><span >{{formData.p_formality}} {{formData.p_firstName}} {{formData.p_lastName}}</span>
         </div>
     </div>
 
@@ -39,10 +39,12 @@
     <div class="control-groups alert alert-success" ng-show="formData.coverAmount && formData.coverTerm && formData.coverType">
         <div class="text-center" >
             <h2>Your quote:</h2>
-            <div><strong style="font-size: 2.6em;">$440,000</strong></div>
-            <div>for only</div>
-            <div><strong style="font-size: 2em;">$23.16</strong></div>
-            <div>per month</div>
+            <h2>
+                <strong style="font-size: 2.6em;">$440,000</strong>
+            </h2>
+            <h2>for only</h2>
+            <h2><strong style="font-size: 2em;">$23.16</strong></h2>
+            <h2>per month</h2>
         </div>
     </div>
 
