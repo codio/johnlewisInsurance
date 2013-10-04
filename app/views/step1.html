@@ -1,4 +1,5 @@
 <form novalidate class="" ng-controller="Step1Controller">
+    <h1>About You</h1>
 
     <div class="control-group  form-horizontal">
         <div class="controls first-name-control">
@@ -43,7 +44,7 @@
 
     <div class="control-group row" ng-class="{'alert alert-block alert-error' : (!step.gender && steps[0].error)}">
         <h2>Your Gender</h2>
-        
+
         <div ng-include="'views/error.html'"></div>
 
         <div class="clearfix span5">
@@ -113,7 +114,7 @@
     </div>
 
     <div class="animate" ng-class="{'showed': step.isPartner=='1'}" >
-        <h1>Your Partner</h1>
+        <h1 id="partner-header">Your Partner</h1>
 
         <div class="control-group  form-horizontal">
             <div class="controls first-name-control">
