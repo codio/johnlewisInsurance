@@ -8,7 +8,8 @@ App.controller('MainController', ['$scope', "InsuranceData", function ($scope, I
          visible : true,
          //data : null,
          validateFunction : isValideStep1,
-         error : false
+         error : false,
+         id: 0
       },
       {
          class : 'partner',
@@ -18,7 +19,8 @@ App.controller('MainController', ['$scope', "InsuranceData", function ($scope, I
          visible : false,
          //data : null,
          validateFunction : null,
-         error : false
+         error : false,
+         id: 1
       },
       {
          class : 'settings',
@@ -28,7 +30,8 @@ App.controller('MainController', ['$scope', "InsuranceData", function ($scope, I
          visible : true,
          //data : InsuranceData,
          validateFunction : isValidStep2,
-         error : false
+         error : false,
+         id: 2
       },
       {
          class : 'result',
@@ -38,7 +41,8 @@ App.controller('MainController', ['$scope', "InsuranceData", function ($scope, I
          visible : true,
          //data : null,
          validateFunction : isValidDefault,
-         error : false
+         error : false,
+         id: 3
       }
    ];
 
@@ -48,9 +52,23 @@ App.controller('MainController', ['$scope', "InsuranceData", function ($scope, I
 
 
    $scope.submit = function(stepData) {
+      
 
       function getNextStep () {
-         return _.findWhere($scope.steps, {visible: true, completed : false});
+         var currentStep = _.findWhere($scope.steps, {visible : true, active : true});
+         
+         function next(curStep) {
+            return $scope.steps[curStep.id++];
+         }
+         
+         var nextStep = next(currentStep);
+         
+         nextStep = (nextStep && nextStep.visible) ? nextStep
+            : (nextStep ? next(nextStep) : null);
+            
+         return nextStep;   
+         
+         //return _.findWhere($scope.steps, {visible: true, completed : false});
       }
 
       function goToNextStep () {
