@@ -1,10 +1,10 @@
 <div id="steps" class="row-fluid" xmlns="http://www.w3.org/1999/html" ng-class="{'hide-mobile' : isMobile}">
     <div class="step span2" ng-repeat="step in steps" ng-show="step.visible" >
-        <a class="active btn-link" ng-class="{'green' : step.active}" ng-click="goToStep(step)" ng-show="step.active || step.completed">
+        <a class="active btn-link" ng-class="{'green' : step.active}" ng-click="goToStep(step)" ng-show="step.active || step.completed || step.started">
             {{step.name}}
         </a>
 
-        <span ng-show="!(step.active || step.completed)">
+        <span ng-show="!(step.active || step.completed || step.started)">
             {{step.name}}
         </span>
 
