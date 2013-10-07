@@ -58,7 +58,7 @@ App.controller('MainController', ['$scope', "InsuranceData", function ($scope, I
          var currentStep = _.findWhere($scope.steps, {visible : true, active : true});
          
          function next(curStep) {
-            var nextId = curStep.id++;
+            var nextId = (curStep.id + 1);
             return $scope.steps[nextId];
          }
          
