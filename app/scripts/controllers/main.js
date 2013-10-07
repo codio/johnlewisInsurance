@@ -166,16 +166,9 @@ App.controller('MainController', ['$scope', "InsuranceData", function ($scope, I
    };
 
    $scope.goToStep = function(step) {
-      _.each($scope.steps, function(step) {
-         step.active = false;
-      });
+      var activeStep = _.findWhere($scope.steps, {visible : true, active : true});
 
-      step.active = true;
-   };
-
-   $scope.backStep = function (stepNumber) {
-      var step = $scope.steps[stepNumber],
-          activeStep = _.findWhere($scope.steps, {active : true});
+      if(step.class === activeStep.class) return;
 
       step.active = true;
 
@@ -200,9 +193,13 @@ App.controller('MainController', ['$scope', "InsuranceData", function ($scope, I
          left: 19,
          width: $page.width()
       })
-         .animate({opacity: 1}, 400, function () {
-            $prevPage.attr('style', null);
-         });
+      .animate({opacity: 1}, 400, function () {
+         $prevPage.attr('style', null);
+      });
+   };
+
+   $scope.backStep = function (stepNumber) {
+      $scope.goToStep($scope.steps[stepNumber]);
    };
 
 }]);
