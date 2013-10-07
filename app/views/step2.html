@@ -10,11 +10,13 @@
         <div ng-include="'views/error.html'"></div>
 
         <div class="clearfix span5">
+
             <div class="input-prepend">
                 <span class="add-on">&nbsp;&nbsp;&nbsp;$&nbsp;&nbsp;&nbsp;</span>
                 <input type="text" ng-model="step.coverAmount" min="40000" max="750000"  placeholder="Life cover amount" ng-change="changeAmount(step.coverAmount)" required>
-
             </div>
+
+            <input type="text" id="amount-slider"/>
         </div>
 
 
@@ -43,10 +45,13 @@
 
 
         <div class="clearfix span5">
+
             <div class="input-append">
                 <input  type="text" class="" placeholder="Cover term" ng-model="step.coverTerm" required>
                 <span class="add-on">years</span>
             </div>
+
+            <input type="text" id="age-slider"/>
         </div>
 
         <div class="span6">

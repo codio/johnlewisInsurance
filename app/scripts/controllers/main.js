@@ -71,33 +71,24 @@ App.controller('MainController', ['$scope', "InsuranceData", function ($scope, I
 
             $wrap.css({overflow: 'hidden'});
 
-            $page.css({position:'relative'})
-               .animate({
-                  left: '-100%'
-               },
-               300,
-               function () {
-                  $page.attr('style', null);
-                  $wrap.attr('style', null);
+            $page.animate({opacity: 0}, 400, function () {
+               $page.attr('style', null);
+               $wrap.attr('style', null);
 
-                  activeStep.active = false;
-                  $scope.$apply();
-               });
+               activeStep.active = false;
+               $scope.$apply();
+            });
 
             $nextPage.css({
-                  position: 'absolute',
-                  left: '100%',
-                  top: '24px',
-                  width: $page.width()
-               })
-               .animate({
-                  left: '18px'
-               },
-               300,
-               function () {
-                  $nextPage.attr('style', null);
-               }
-            );
+               opacity: 0,
+               position:'absolute',
+               top: 24,
+               left: 19,
+               width: $page.width()
+            })
+            .animate({opacity: 1}, 400, function () {
+               $nextPage.attr('style', null);
+            });
 
             return true;
          }
@@ -194,33 +185,24 @@ App.controller('MainController', ['$scope', "InsuranceData", function ($scope, I
 
       $wrap.css({overflow: 'hidden'});
 
-      $page.css({position:'relative'})
-         .animate({
-            left: '100%'
-         },
-         300,
-         function () {
-            $page.attr('style', null);
-            $wrap.attr('style', null);
+      $page.animate({opacity: 0}, 400, function () {
+         $page.attr('style', null);
+         $wrap.attr('style', null);
 
-            activeStep.active = false;
-            $scope.$apply();
-         });
+         activeStep.active = false;
+         $scope.$apply();
+      });
 
       $prevPage.css({
-         position: 'absolute',
-         left: '-100%',
-         top: '24px',
+         opacity: 0,
+         position:'absolute',
+         top: 24,
+         left: 19,
          width: $page.width()
       })
-         .animate({
-            left: '18px'
-         },
-         300,
-         function () {
+         .animate({opacity: 1}, 400, function () {
             $prevPage.attr('style', null);
-         }
-      );
+         });
    };
 
 }]);

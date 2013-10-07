@@ -3,12 +3,11 @@ App.directive('toggable', function () {
       var $partner = $(el);
 
       attr.$observe('toggable', function(value) {
-         console.log($partner.height());
          if (value === 'true') {
             $partner
                .css({height: 0, overflow: 'hidden'})
                .animate({height: 500}, 300, function () {
-                  $partner.css({overflow: 'visible'});
+                  $partner.css({overflow: 'visible', height: 'auto'});
                })
          }
          else {
