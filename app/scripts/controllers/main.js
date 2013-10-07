@@ -55,7 +55,10 @@ App.controller('MainController', ['$scope', "InsuranceData", function ($scope, I
 
       function goToNextStep () {
          var item = getNextStep();
-         if (item) item.active = true;
+         if (item) {
+            item.active = true;
+            item.started = true;
+         }
       }
 
 
