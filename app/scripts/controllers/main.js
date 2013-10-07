@@ -71,7 +71,7 @@ App.controller('MainController', ['$scope', "InsuranceData", function ($scope, I
 
             $wrap.css({overflow: 'hidden'});
 
-            $page.animate({opacity: 0}, 400, function () {
+            $page.animate({opacity: 0}, 550, function () {
                $page.attr('style', null);
                $wrap.attr('style', null);
 
@@ -86,7 +86,7 @@ App.controller('MainController', ['$scope', "InsuranceData", function ($scope, I
                left: 19,
                width: $page.width()
             })
-            .animate({opacity: 1}, 400, function () {
+            .animate({opacity: 1}, 550, function () {
                $nextPage.attr('style', null);
             });
 
@@ -178,7 +178,7 @@ App.controller('MainController', ['$scope', "InsuranceData", function ($scope, I
 
       $wrap.css({overflow: 'hidden'});
 
-      $page.animate({opacity: 0}, 400, function () {
+      $page.animate({opacity: 0}, 550, function () {
          $page.attr('style', null);
          $wrap.attr('style', null);
 
@@ -193,7 +193,7 @@ App.controller('MainController', ['$scope', "InsuranceData", function ($scope, I
          left: 19,
          width: $page.width()
       })
-      .animate({opacity: 1}, 400, function () {
+      .animate({opacity: 1}, 550, function () {
          $prevPage.attr('style', null);
       });
    };
