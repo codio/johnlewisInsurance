@@ -113,7 +113,7 @@
         </small>
     </div>
 
-    <div class="animate" ng-class="{'showed': step.isPartner=='1'}" >
+    <div toggable="{{step.isPartner=='1'}}" style="overflow: hidden; height: 0">
         <h1 id="partner-header">Your Partner</h1>
 
         <div class="control-group  form-horizontal">

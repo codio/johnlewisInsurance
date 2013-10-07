@@ -1,6 +1,7 @@
 App.controller('MainController', ['$scope', "InsuranceData", function ($scope, InsuranceData) {
    $scope.steps = [
       {
+         class : 'about',
          name : "About you",
          completed : false,
          active : true,
@@ -10,6 +11,7 @@ App.controller('MainController', ['$scope', "InsuranceData", function ($scope, I
          error : false
       },
       {
+         class : 'partner',
          name : "About your partner",
          completed : false,
          active : false,
@@ -19,6 +21,7 @@ App.controller('MainController', ['$scope', "InsuranceData", function ($scope, I
          error : false
       },
       {
+         class : 'settings',
          name : "Settings",
          completed : false,
          active : false,
@@ -28,6 +31,7 @@ App.controller('MainController', ['$scope', "InsuranceData", function ($scope, I
          error : false
       },
       {
+         class : 'result',
          name : "Result",
          completed : false,
          active : false,
@@ -45,36 +49,61 @@ App.controller('MainController', ['$scope', "InsuranceData", function ($scope, I
 
    $scope.submit = function(stepData) {
 
+      function getNextStep () {
+         return _.findWhere($scope.steps, {visible: true, completed : false});
+      }
+
       function goToNextStep () {
-         var item = _.findWhere($scope.steps, {visible: true, completed : false});
-         if (item) {
-            item.active = true;
-         }
-      };
+         var item = getNextStep();
+         if (item) item.active = true;
+      }
 
 
       function saveData(stepData) {
          var activeStep = _.findWhere($scope.steps, {visible : true, active : true});
 
          if (activeStep && activeStep.hasOwnProperty('validateFunction') && activeStep.validateFunction(stepData)) {
-            //activeStep.data = stepData;
             activeStep.completed = true;
-            var el = $('.page.showed');
-            el
-               .css({position:'absolute'})
+
+            var $wrap = $('.page-wrap'),
+                $page = $('.page.showed'),
+                $nextPage = $('.page.' + getNextStep().class);
+
+            $wrap.css({overflow: 'hidden'});
+
+            $page.css({position:'relative'})
                .animate({
-                  opacity: 0,
-                  left: -300
-               }, 300, function () {
-                  el.attr('style', null);
+                  left: '-100%'
+               },
+               300,
+               function () {
+                  $page.attr('style', null);
+                  $wrap.attr('style', null);
+
                   activeStep.active = false;
                   $scope.$apply();
                });
+
+            $nextPage.css({
+                  position: 'absolute',
+                  left: '100%',
+                  top: '24px',
+                  width: $page.width()
+               })
+               .animate({
+                  left: '18px'
+               },
+               300,
+               function () {
+                  $nextPage.attr('style', null);
+               }
+            );
+
             return true;
          }
 
          return false;
-      };
+      }
 
       if (saveData(stepData)) {
          goToNextStep();
@@ -151,11 +180,47 @@ App.controller('MainController', ['$scope', "InsuranceData", function ($scope, I
       });
 
       step.active = true;
-      console.log("change step");
    };
 
    $scope.backStep = function (stepNumber) {
-      $scope.goToStep($scope.steps[stepNumber]);
+      var step = $scope.steps[stepNumber],
+          activeStep = _.findWhere($scope.steps, {active : true});
+
+      step.active = true;
+
+      var $wrap = $('.page-wrap'),
+         $page = $('.page.showed'),
+         $prevPage = $('.page.' + step.class);
+
+      $wrap.css({overflow: 'hidden'});
+
+      $page.css({position:'relative'})
+         .animate({
+            left: '100%'
+         },
+         300,
+         function () {
+            $page.attr('style', null);
+            $wrap.attr('style', null);
+
+            activeStep.active = false;
+            $scope.$apply();
+         });
+
+      $prevPage.css({
+         position: 'absolute',
+         left: '-100%',
+         top: '24px',
+         width: $page.width()
+      })
+         .animate({
+            left: '18px'
+         },
+         300,
+         function () {
+            $prevPage.attr('style', null);
+         }
+      );
    };
 
 }]);

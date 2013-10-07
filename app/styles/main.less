@@ -99,15 +99,24 @@ body:not(.mobile) {
    position: relative;
 
    .error-popover {
-      display: none;
+      .animation();
+      width: 197px;
+      left: 95%;
+      top: 62px;
+      display: block;
+   }
+
+   &:not(.alert) {
+      .error-popover {
+         .animation();
+         opacity: 0;
+         visibility: hidden;
+      }
    }
 
    &.alert {
       .error-popover {
-         display: block;
-         width: 197px;
-         left: 95%;
-         top: 62px;
+         opacity: 1;
       }
 
       .mobile-error {

@@ -17,16 +17,16 @@
 
         <div class="span8 page-wrap">
             <div class="data-container">
-                <div class="page" ng-class="{showed: steps[0].active, 'not-showed': !steps[0].active}">
+                <div class="page {{ steps[0].class }}" ng-class="{showed: steps[0].active, 'not-showed': !steps[0].active}">
                     <div ng-include="'views/step1.html'"></div>
                 </div>
 
 
-                <div class="page" ng-class="{showed: steps[2].active, 'not-showed': !steps[2].active}">
+                <div class="page {{ steps[2].class }}" ng-class="{showed: steps[2].active, 'not-showed': !steps[2].active}">
                     <div ng-include="'views/step2.html'"></div>
                 </div>
 
-                <div class="page" ng-class="{showed: steps[3].active, 'not-showed': !steps[3].active}">
+                <div class="page {{ steps[3].class }}" ng-class="{showed: steps[3].active, 'not-showed': !steps[3].active}">
                     <div ng-include="'views/step3.html'"></div>
                 </div>
             </div>
