@@ -71,7 +71,8 @@ App.controller('MainController', ['$scope', "InsuranceData", function ($scope, I
 
             $wrap.css({overflow: 'hidden'});
 
-            $page.animate({opacity: 0}, 550, function () {
+            var animationTime = 550;
+            $page.animate({opacity: 0}, animationTime, function () {
                $page.attr('style', null);
                $wrap.attr('style', null);
 
@@ -86,9 +87,12 @@ App.controller('MainController', ['$scope', "InsuranceData", function ($scope, I
                left: 19,
                width: $page.width()
             })
-            .animate({opacity: 1}, 550, function () {
+            .animate({opacity: 1}, animationTime, function () {
                $nextPage.attr('style', null);
             });
+
+             // scroll to top
+             $('html,body').animate({scrollTop:0}, animationTime);
 
             return true;
          }
@@ -186,6 +190,7 @@ App.controller('MainController', ['$scope', "InsuranceData", function ($scope, I
          $scope.$apply();
       });
 
+      var animationTime = 550;
       $prevPage.css({
          opacity: 0,
          position:'absolute',
@@ -193,9 +198,12 @@ App.controller('MainController', ['$scope', "InsuranceData", function ($scope, I
          left: 19,
          width: $page.width()
       })
-      .animate({opacity: 1}, 550, function () {
+      .animate({opacity: 1}, animationTime, function () {
          $prevPage.attr('style', null);
       });
+
+      // scroll to top
+      $('html,body').animate({scrollTop:0}, animationTime);
    };
 
    $scope.backStep = function (stepNumber) {

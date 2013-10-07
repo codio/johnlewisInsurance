@@ -27,11 +27,11 @@
     <div class="control-groups alert alert-success" ng-show="formData.coverAmount || formData.coverTerm">
         <div ng-show="formData.coverAmount" class="text-center">
             <h2>Your quote for:</h2>
-            <h2><span style="font-size: 2em;">£{{formData.coverAmount}}</span></h2>
+            <h2><span style="font-size: 2em;">£{{formData.coverAmount|number:0}}</span></h2>
             <h2>Life Insurance</h2>
         </div>
         <div ng-show="formData.coverAmount && formData.coverTerm"  class="text-center">
-            <h2>over <span style="font-size: 1.4em;">{{formData.coverTerm}}</span> years</h2>
+            <h2>over <span style="font-size: 1.4em;">{{formData.coverTerm|number:0}}</span> years</h2>
         </div>
     </div>
 
