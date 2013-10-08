@@ -52,6 +52,24 @@ App.controller("Step2Controller", ["$scope", "InsuranceData", function($scope, I
       }
    });
 
+   $("#illness-slider").ionRangeSlider({
+      min: 4000,
+      max: 600000,
+      type: "single",
+      step: 1000,
+      hasGrid: false,
+      hideText: false,
+      prettify: true,
+      onChange: function(obj){
+         //$scope.step.coverAmount = obj.fromNumber;
+         //$scope.$apply();
+      },
+      onFinish: function(obj){
+         $scope.step.illnesAmount = obj.fromNumber;
+         $scope.$apply();
+      }
+   });
+
    $scope.$watch('step.coverTerm', function (e) {
       if(e > 4 && e < 41) {
          $("#age-slider").ionRangeSlider("update", {from: e});
@@ -61,6 +79,12 @@ App.controller("Step2Controller", ["$scope", "InsuranceData", function($scope, I
    $scope.$watch('step.coverAmount', function (e) {
       if(e > 40000 && e < 750000) {
          $("#amount-slider").ionRangeSlider("update", {from: e});
+      }
+   });
+
+   $scope.$watch('step.illnesAmount', function (e) {
+      if(e > 4000 && e < 600000) {
+         $("#illness-slider").ionRangeSlider("update", {from: e});
       }
    });
 }]);

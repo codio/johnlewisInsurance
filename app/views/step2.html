@@ -117,25 +117,31 @@
 
     </div>
 
-    <div class="animate control-group row" ng-class="{'alert alert-block alert-error' : (!step.illnesAmount && steps[2].error), 'showed' : (step.illnes=='yes')}">
-        <div class="">
-            <h2>Amount</h2>
-        </div>
 
-        <div ng-include="'views/error.html'"></div>
+    <div toggable="{{step.illnes=='yes'}}" style="overflow: hidden; height: 0">
 
-        <div class=" clearfix span5">
-
-            <div class="input-prepend">
-                <span class="add-on">&nbsp;&nbsp;&nbsp;£&nbsp;&nbsp;&nbsp;</span>
-                <input type="text" class=""  placeholder="" value="5,000" ng-model="step.illnesAmount">
+        <div class="control-group row" ng-class="{'alert alert-block alert-error' : (!step.illnesAmount && steps[2].error)}">
+            <div class="">
+                <h2>Amount</h2>
             </div>
+
+            <div ng-include="'views/error.html'"></div>
+
+            <div class=" clearfix span5">
+
+                <div class="input-prepend">
+                    <span class="add-on">&nbsp;&nbsp;&nbsp;£&nbsp;&nbsp;&nbsp;</span>
+                    <input type="text" class=""  placeholder="" value="5,000" ng-model="step.illnesAmount">
+                </div>
+
+                <input type="text" id="illness-slider"/>
+            </div>
+
+            <small class="span6">
+                You can choose between 10% and 100% of your Life cover amount, up to £600,000 depending how old you are.
+            </small>
+
         </div>
-
-        <small class="span6">
-            You can choose between 10% and 100% of your Life cover amount, up to £600,000 depending how old you are.
-        </small>
-
     </div>
 
 
